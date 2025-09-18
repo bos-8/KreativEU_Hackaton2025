@@ -1,0 +1,43 @@
+import type { Metadata } from "next";
+import Navbar from "../../components/layout/Navbar";
+import Footer from "../../components/layout/Footer";
+import { themeInitScript } from "@/lib/theme/theme-init";
+import "../../styles/globals.css";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
+
+export const metadata: Metadata = {
+  title: "MODULON",
+  description: "MODULON - AUTH SYSTEM BASE",
+  authors: [{ name: "bos-8", url: "https://github.com/bos-8" },
+  { name: "clau936", url: "https://github.com/clau936" },
+  { name: "bibleAC", url: "https://github.com/bibleAC" }
+  ],
+};
+
+export default async function LocaleLayout({
+  children, params
+}: Readonly<{
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}>) {
+  const { locale } = await params;
+  if (!hasLocale(["en", "pl", "es", "it", "cs"], locale)) {
+    notFound();
+  }
+  return (
+    <html lang={locale} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="flex min-h-screen flex-col bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+        <NextIntlClientProvider>
+          <Navbar />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
+}
