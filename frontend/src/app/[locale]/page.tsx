@@ -1,10 +1,16 @@
 // @file: src/app/page.tsx
 'use client';
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useState } from 'react';
-// import { api } from "@/lib/api/axios"  // not used yet (no sending logic)
+import { api } from "@/lib/api/axios"  // not used yet (no sending logic)
 
 type CountryOption = { code: string; name: string };
+
+type PreviewData = {
+  country: string;
+  days: number;
+  lang: string;
+};
 
 // Minimal EU-focused list (extend anytime)
 const COUNTRIES: CountryOption[] = [
@@ -21,23 +27,22 @@ const COUNTRIES: CountryOption[] = [
   { code: 'SE', name: 'Sweden' },
 ];
 export default function Home() {
-  const t = useTranslations('HomePage'); // keep existing hero copy
+  const t = useTranslations('HomePage');
+  const locale = useLocale();
 
   const [country, setCountry] = useState<string>('IT');
-  const [days, setDays] = useState<string>('1'); // keep as string for controlled input
+  const [days, setDays] = useState<string>('1');
   const [formError, setFormError] = useState<string | null>(null);
-  const [preview, setPreview] = useState<{ country: string; days: number } | null>(null);
+  const [preview, setPreview] = useState<PreviewData | null>(null);
+  const [apiResponse, setApiResponse] = useState<any>(null);
 
   function validate(): string | null {
-    // days: required, positive integer
     if (!days.trim()) return 'Please enter number of days.';
     const n = Number(days);
     if (!Number.isFinite(n) || !Number.isInteger(n) || n <= 0) {
       return 'Days must be a positive integer.';
     }
-    // optional: simple upper bound to avoid silly inputs
     if (n > 30) return 'Please choose 30 days or fewer.';
-    // country required
     if (!country) return 'Please select a country.';
     return null;
   }
@@ -51,11 +56,18 @@ export default function Home() {
       return;
     }
     setFormError(null);
-    setPreview({ country, days: Number(days) });
+    setPreview({ country, days: Number(days), lang: locale });
+  }
 
-    // NOTE: No sending yet. When ready, call your API here.
-    // const payload = { country, time_budget_min: daysToMinutes(Number(days)), ... }
-    // const { data } = await api.post('/itinerary', payload);
+  async function handleSend() {
+    if (!preview) return;
+    try {
+      const res = await api.post("/itinerary", preview); // ✅ use shared api
+      setApiResponse(res.data);
+    } catch (error: any) {
+      console.error(error);
+      setApiResponse({ error: "Failed to contact backend" });
+    }
   }
 
   return (
@@ -137,6 +149,7 @@ export default function Home() {
         )}
 
         <div className="mt-6 flex items-center gap-3">
+          {/* Preview button */}
           <button
             type="submit"
             className="inline-flex items-center justify-center rounded-md bg-black text-white px-4 py-2 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black dark:focus:ring-white dark:focus:ring-offset-gray-800 transition"
@@ -144,23 +157,36 @@ export default function Home() {
             Preview selection
           </button>
 
-          {/* Disabled placeholder for future sending */}
+          {/* Send button (enabled only after preview) */}
           <button
             type="button"
-            disabled
-            className="inline-flex items-center justify-center rounded-md bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 px-4 py-2 cursor-not-allowed"
-            title="Sending to API will be enabled later"
+            onClick={handleSend}
+            disabled={!preview}
+            className={`inline-flex items-center justify-center rounded-md px-4 py-2 transition
+      ${preview
+                ? "bg-indigo-600 text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
+                : "bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 cursor-not-allowed"
+              }`}
+            title={preview ? "Send to API" : "Fill the form first"}
           >
-            Send (soon)
+            Send
           </button>
         </div>
 
+
+        {/* Preview */}
         {preview && (
           <div className="mt-6">
-            <h4 className="text-sm font-semibold text-gray-800 dark:text-gray-100 mb-2">Your selection</h4>
-            <pre className="bg-gray-50 dark:bg-gray-900 p-3 rounded-md text-sm overflow-x-auto text-gray-800 dark:text-gray-100">
-              {JSON.stringify(preview, null, 2)}
-            </pre>
+            <h4 className="text-sm font-semibold">Your selection</h4>
+            <pre className="dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-3 rounded-md text-sm">{JSON.stringify(preview, null, 2)}</pre>
+          </div>
+        )}
+
+        {/* API response */}
+        {apiResponse && (
+          <div className="mt-6">
+            <h4 className="text-sm font-semibold">Backend response</h4>
+            <pre className="dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-3 rounded-md text-sm">{JSON.stringify(apiResponse, null, 2)}</pre>
           </div>
         )}
       </form>

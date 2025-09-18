@@ -135,6 +135,8 @@ export default function TripPlannerPage() {
     'text-lg font-semibold text-gray-900 dark:text-gray-100'
   const sectionDesc = 'text-sm text-gray-600 dark:text-gray-400'
 
+  const [duration, setDuration] = React.useState(7)
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-10 px-4 sm:px-6">
       <div className="mx-auto max-w-4xl space-y-6">
@@ -285,8 +287,8 @@ export default function TripPlannerPage() {
                 <input
                   type="number"
                   min={1}
-                  value={7}
-                  // onChange={() => { }}
+                  value={duration}
+                  onChange={(e) => setDuration(Number(e.target.value))}
                   placeholder="e.g., 5"
                   className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-800 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100"
                 />
@@ -425,6 +427,7 @@ export default function TripPlannerPage() {
                       <input
                         type="checkbox"
                         checked={checked}
+                        onChange={() => { }}
                         className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800"
                       />
                       {icon && <span className="text-base">{icon}</span>}
@@ -468,6 +471,7 @@ export default function TripPlannerPage() {
                       <input
                         type="checkbox"
                         checked={checked}
+                        onChange={() => { }}
                         className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800"
                       />
                       <span className="text-base">{icon}</span>
@@ -522,6 +526,7 @@ export default function TripPlannerPage() {
                       <input
                         type="checkbox"
                         checked={checked}
+                        onChange={() => { }}
                         className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800"
                       />
                       <span className="text-base">{icon}</span>
@@ -586,6 +591,7 @@ export default function TripPlannerPage() {
                         <input
                           type="checkbox"
                           checked={checked}
+                          onChange={() => { }}
                           className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800"
                         />
                         <span className="text-base">{icon}</span>
@@ -633,6 +639,7 @@ export default function TripPlannerPage() {
                   <input
                     type="checkbox"
                     checked={checked}
+                    onChange={() => { }}
                     className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800"
                   />
                   <span className="text-base">{icon}</span>

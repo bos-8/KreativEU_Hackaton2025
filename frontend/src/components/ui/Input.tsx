@@ -39,7 +39,7 @@ export function Input({
 
       <input
         type={type}
-        value={value} // ✅ explicit controlled value
+        defaultValue={value} // ✅ explicit controlled value
         placeholder={placeholder || label}
         disabled={disabled}
         readOnly={readOnly}

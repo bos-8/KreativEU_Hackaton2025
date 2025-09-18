@@ -52,14 +52,14 @@ export default function Navbar() {
         {/* Navigation Links */}
         <div className="flex gap-4 text-sm font-medium">
           <NavbarLink href="/" label={t('home')} />
-          <NavbarLink href="/feedback" label={t('feedback')} />
-          <NavbarLink href="/planner" label={t('planner')} />
+          <NavbarLink href="/feedback" label="Feedback" />
+          <NavbarLink href="/planner" label="Trip Planner" />
         </div>
 
         {/* Spacer */}
         <div className="ml-auto flex items-center gap-4">
 
-          <NavbarLink href="/about" label="about" />
+          <NavbarLink href="/about" label="About" />
         </div>
       </div>
     </nav>
