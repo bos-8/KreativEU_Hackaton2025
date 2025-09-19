@@ -1,14 +1,15 @@
 {
-  "HomePage": {
-    "modulon": "System bazowy autoryzacji",
-    "projectTitle": "O projekcie",
-    "projectDescription": "<strong>Modulon</strong> to skalowalna i bezpieczna platforma do zarządzania użytkownikami i autoryzacją, oparta na <strong>Next.js</strong> (frontend) oraz <strong> NestJS + Prisma</strong> (backend). System wykorzystuje nowoczesne podejście do zarządzania sesjami, access i refresh tokenami oraz przygotowany jest pod przyszłą konteneryzację, cache, load balancing i migrację do PostgreSQL. Architektura oparta jest o monorepo zgodne z najlepszymi praktykami."
-  },
   "Navbar": {
     "home": "Strona główna",
-    "dashboard": "Panel",
-    "signup": "Zarejestruj się",
-    "login": "Zaloguj się"
+    "feedback": "Opinie",
+    "planner": "Planer podróży",
+    "demo": "Demo",
+    "architecture": "Architektura",
+    "about": "O projekcie"
+  },
+  "HomePage": {
+    "text1": "Odkryj <bold>ukryte skarby</bold> Europy. Od historycznych zamków po zapierające dech w piersiach wybrzeża – tworzymy podróże, które pozwolą Ci doświadczyć kultury, natury i historii — <italic>na Twój sposób</italic>.",
+    "text2": "Wybierz cel podróży i czas, jaki chcesz przeznaczyć na zwiedzanie. Nasz planer oparty na AI stworzy <italic>idealny plan podróży</italic>, łącząc przygodę i relaks."
   },
   "Footer": {
     "rights": "Wszelkie prawa zastrzeżone."
@@ -27,44 +28,164 @@
       "title": "Tryb ciemny"
     }
   },
-  "Login": {
-    "title": "Zaloguj się",
-    "email": "Email",
-    "password": "Hasło",
-    "submit": "Zaloguj",
-    "errors": {
-      "email": {
-        "required": "Email jest wymagany",
-        "invalid": "Nieprawidłowy format email"
-      },
-      "password": {
-        "min": "Hasło musi mieć co najmniej 6 znaków"
-      }
-    }
+  "CountryNames": {
+    "IT": "Włochy",
+    "PT": "Portugalia",
+    "DE": "Niemcy",
+    "NL": "Holandia",
+    "CZ": "Czechy",
+    "PL": "Polska",
+    "AT": "Austria",
+    "SK": "Słowacja",
+    "RO": "Rumunia",
+    "BG": "Bułgaria",
+    "TR": "Turcja",
+    "SE": "Szwecja"
   },
-  "Signup": {
-    "title": "Rejestracja",
-    "email": "Email",
-    "password": "Hasło",
-    "confirmPassword": "Potwierdź hasło",
-    "submit": "Zarejestruj się",
+  "Feedback": {
+    "title": "Opinie",
+    "description": "Podziel się krótką opinią o swojej podróży. Wstępnie uzupełniliśmy szczegóły na podstawie Twojego planu/zgłoszenia.",
+    "tripText": "Szczegóły podróży",
+    "country": "Kraj",
+    "city": "Miasto",
+    "days": "Dni",
+    "rating": "Ogólnie, jak oceniasz podróż?",
+    "recommend": "Polecił(a)bym tę podróż",
+    "exampleText": "Przykład: “Podróż była bardzo udana…”",
+    "back": "Powrót",
+    "submit": "Wyślij opinię",
+    "success": "✅ Dziękujemy za opinię! Pomoże ona innym użytkownikom na platformie.",
+    "placeholder": "Podróż była bardzo udana! Uwielbiałem jedzenie i zabytki historyczne. Poruszanie się pieszo sprawdziło się świetnie. Hotel spełnił oczekiwania.\n\nNajważniejsze miejsca: Koloseum, Muzea Watykańskie, Fontanna di Trevi.\nSugestie: Rezerwuj główne atrakcje z wyprzedzeniem, aby uniknąć kolejek."
+  },
+  "Demo": {
+    "subtitle": "Zaplanuj swoją europejską przygodę.",
+    "text2": "Ustawienia podróży",
+    "text3": "Wybierz <strong>kraj</strong>, który chcesz odwiedzić, i podaj, ile <strong>dni</strong> chcesz tam spędzić. Te informacje zostaną użyte do przygotowania Twojego planu podróży.",
+    "text4": "Zaplanuj swój plan podróży",
+    "country": "Kraj",
+    "days": "Dni",
+    "daysHint": "Podaj dodatnią liczbę całkowitą (max 30).",
+    "submit": "Wyślij",
     "reset": "Resetuj",
-    "errors": {
-      "email": {
-        "required": "Email jest wymagany",
-        "invalid": "Nieprawidłowy format email"
+    "name": "Nazwa",
+    "description": "Opis",
+    "visit": "Wizyta (min)",
+    "error": "Odpowiedź backendu",
+    "info1": "Podaj liczbę dni.",
+    "info2": "Liczba dni musi być dodatnią liczbą całkowitą.",
+    "info3": "Wybierz maksymalnie 30 dni.",
+    "info4": "Wybierz kraj."
+  },
+  "Architecture": {
+    "title": "⚙️ Architektura projektu",
+    "subtitle": "Obecne rozwiązanie",
+    "clientSide": "Część <b>kliencka</b> została zbudowana w <f>Next.js (React, TypeScript, Tailwind CSS, next-intl)</f>. Użytkownik wybiera <i>kraj</i>, liczbę <i>dni</i> i język. Żądanie jest wysyłane przez Axios do backendu.",
+    "backendSide": "<b>Backend</b> działa w oparciu o <f>FastAPI (Python)</f>. Pobiera <i>Punkty Zainteresowania</i> (POI) z <f>bazy danych SQLite</f>, każdy z koordynatami, czasem zwiedzania i „oceną atrakcyjności”.",
+    "gaIntro": "Do obliczenia planu podróży używamy <f>Algorytmu Genetycznego (GA)</f>. GA symuluje <i>optymalizację ewolucyjną</i>: generowane są losowe trasy, oceniane i iteracyjnie ulepszane. Kryteria to:",
+    "gaPoints": {
+      "maximizeScore": "<b>Maksymalizacja oceny</b> odwiedzonych POI",
+      "minimizeTravel": "<b>Minimalizacja czasu podróży</b> między miejscami (ok. 10 min/km pieszo)",
+      "balanceLimits": "<b>Równoważenie dziennych limitów</b> (ok. 8 godzin aktywności dziennie)"
+    },
+    "gaResult": "Najlepsza trasa znaleziona po kilku generacjach zwracana jest w formacie JSON z detalami: <i>dzień, czas podróży, czas wizyty, czas łączny i tłumaczenia</i>.",
+    "systemFlow": "Przepływ systemu",
+    "flow": {
+      "1": "<b>Użytkownik</b> odwiedza stronę <i>frontend w Next.js</i>.",
+      "2": "<b>Frontend</b> wysyła żądanie podróży (kraj, dni, język) do <i>backendu FastAPI</i>.",
+      "3": "<b>Backend</b> pobiera <i>Punkty Zainteresowania</i> (POI) i metadane z <i>bazy SQLite</i>.",
+      "4": "Dane POI wraz z tłumaczeniami są zwracane do <i>modułu przetwarzania FastAPI</i>.",
+      "5": "FastAPI przesyła dane do <b>Algorytmu Genetycznego</b>, który oblicza <i>optymalny plan podróży</i> (maksymalizując oceny i minimalizując czas podróży).",
+      "6": "Wyniki GA wracają do <i>FastAPI</i>, które wybiera treści w odpowiednim języku.",
+      "7": "<b>Odpowiedź</b> trafia do <i>frontend w Next.js</i>, gdzie plan podróży jest prezentowany użytkownikowi."
+    },
+    "aws": "Migracja do chmury AWS",
+    "awsIntro": "Aby obsłużyć większą liczbę użytkowników i dane, planujemy migrację do ekosystemu <b>AWS Cloud</b>:",
+    "awsPoints": {
+      "1": "<b>AWS API Gateway</b> – bezpieczny punkt wejściowy dla żądań",
+      "2": "<b>AWS Lambda</b> – funkcje serverless realizujące obliczenia GA",
+      "3": "<b>Amazon RDS / Aurora</b> – skalowalna baza danych zamiast SQLite",
+      "4": "<b>AWS S3</b> – przechowywanie obrazów i danych statycznych",
+      "5": "<b>AWS CloudWatch</b> – monitorowanie, logi i metryki wydajności",
+      "6": "<b>AWS SageMaker (w przyszłości)</b> – modele ML/AI do personalizowanych planów"
+    },
+    "awsOutro": "Ta architektura cloud-native zapewnia <i>wysoką dostępność, globalny zasięg i bezpieczeństwo klasy enterprise</i>.",
+    "future": "Przyszłe ulepszenia",
+    "futureIntro": "Poza infrastrukturą chcemy stale ulepszać <b>doświadczenie użytkownika</b> i wprowadzać inteligentniejsze funkcje planowania:",
+    "futurePoints": {
+      "1": "<b>Śledzenie aktywności</b> – uczenie się na podstawie wcześniejszych planów podróży",
+      "2": "<b>Planowanie oparte na preferencjach</b> – tempo, budżet, tematy (historia, kuchnia, natura)",
+      "3": "<b>Podróże wielokrajowe</b> – trasy obejmujące kilka krajów UE w jednym planie",
+      "4": "<b>Funkcje współpracy</b> – udostępnianie i wspólna edycja planów",
+      "5": "<b>Dostęp offline</b> – możliwość korzystania z planu bez internetu",
+      "6": "<b>Gamifikacja</b> – nagrody za odkrywanie nowych miejsc i wybory ekologiczne"
+    },
+    "qa": "FAQ",
+    "qaItems": {
+      "1": {
+        "q": "Dlaczego Algorytm Genetyczny zamiast Dijkstra lub A*?",
+        "a": "Klasyczne algorytmy dobrze znajdują najkrótsze ścieżki, ale nie radzą sobie z wieloma kryteriami (ocena + czas + struktura dnia). GA daje elastyczność i szybkie rozwiązania bliskie optymalnym."
       },
-      "password": {
-        "min": "Hasło musi mieć co najmniej 6 znaków"
+      "2": {
+        "q": "Dlaczego teraz SQLite?",
+        "a": "SQLite jest lekki, przenośny i świetny do prototypów. W przyszłości przejdziemy na skalowalną bazę danych jak <b>PostgreSQL na AWS Aurora</b>."
       },
-      "confirmPassword": {
-        "required": "Potwierdzenie hasła jest wymagane",
-        "match": "Hasła muszą być identyczne"
+      "3": {
+        "q": "Jak system będzie się rozwijał?",
+        "a": "Planujemy spersonalizowane plany dzięki <i>machine learning</i>, integracje z API transportowymi i wspólne planowanie w chmurze."
+      },
+      "4": {
+        "q": "Czy można planować podróże wielokrajowe?",
+        "a": "Tak — w przyszłości planer będzie wspierał <b>podróże przez kilka krajów</b>, optymalizując przejścia graniczne i transport."
+      },
+      "5": {
+        "q": "Czy planer będzie działał offline?",
+        "a": "Tak, planujemy tryb <b>offline</b>, gdzie plan będzie zapisany na urządzeniu i dostępny bez internetu."
+      },
+      "6": {
+        "q": "Jak będzie działała personalizacja?",
+        "a": "Na podstawie <i>preferencji i wcześniejszych wyborów</i> system zaproponuje plan zgodny z Twoim stylem (jedzenie, historia, natura, nocne życie)."
+      },
+      "7": {
+        "q": "Czy uwzględniacie zrównoważony rozwój?",
+        "a": "Oczywiście. Promujemy <b>ekologiczne formy podróży</b> jak pieszo, rower czy pociąg oraz miejsca wspierające kulturę i ekologię."
+      },
+      "8": {
+        "q": "Jak chronione są dane?",
+        "a": "Stosujemy praktyki <b>zgodne z RODO</b>. Dane nie są sprzedawane i są bezpiecznie przechowywane. W chmurze dodamy <i>szyfrowanie end-to-end</i> i możliwość usuwania danych przez użytkownika."
       }
     }
   },
-  "DashboardPage": {
-    "title": "Panel użytkownika",
-    "description": "Witaj w swoim panelu. Tutaj w przyszłości znajdziesz skróty, statystyki i zarządzanie kontem."
+  "About": {
+    "team": "Zespół: 3U-nity Vision",
+    "visionText": "<y>3U</y> oznacza <b>Free You</b>, symbolizując wolność i indywidualność. Odnosi się też do <bl>EU</bl>, czyli <b>Unii Europejskiej</b>, reprezentującej jedność i współpracę. <in>Vision</in> wskazuje na wspólną, zrównoważoną przyszłość Europy.",
+    "lead": "Lider projektu",
+    "strategy": "Strategia i koordynacja",
+    "consultant": "Konsultant ds. sprzedaży",
+    "aiWebDev": "AI i rozwój webowy",
+    "architect": "Architekt",
+    "nextJsReact": "NEXT.js, TypeScript, Tailwind CSS, FastAPI",
+    "card": {
+      "title": "KreativEU",
+      "intro": "Świętuj <y>kreatywność</y> i różnorodność kulturową Europy. Od sztuki i designu po technologię i innowacje zrównoważone – obywatele są zachęcani do odkrywania, dzielenia się i wspólnego tworzenia lepszej przyszłości — <i>razem</i>.",
+      "pitch": "Wybierz swoją inspirację: dziedzictwo, innowacje lub zrównoważony rozwój. Nasz planer AI stworzy <i>idealną podróż kulturalną</i>, łącząc tradycję z nowoczesną kreatywnością Europy.",
+      "valuesTitle": "🇪🇺 Wartości europejskie",
+      "valuesIntro": "Unia Europejska opiera się na sześciu kluczowych wartościach, które stanowią fundament naszego społeczeństwa:",
+      "valuesList": {
+        "1": "Poszanowanie godności ludzkiej",
+        "2": "Wolność i demokracja",
+        "3": "Równość i praworządność",
+        "4": "Poszanowanie praw człowieka, w tym praw mniejszości"
+      },
+      "valuesOutro": "Wartości te są wspólne dla wszystkich krajów UE i zapewniają społeczeństwo oparte na pluralizmie, tolerancji, sprawiedliwości, solidarności i niedyskryminacji. Zostały zapisane w <b>Artykule 2 Traktatu o Unii Europejskiej</b>.",
+      "sustainTitle": "🌱 Zrównoważony rozwój",
+      "sustainIntro": "Komisja Europejska rozwija podejście zintegrowane w zakresie <g>przemysłu, środowiska, klimatu i energii</g>, aby wspierać zrównoważony wzrost, tworzenie miejsc pracy i innowacje.",
+      "sustainList": {
+        "1": "Przejście na gospodarkę cyrkularną neutralną klimatycznie",
+        "2": "Ochrona bioróżnorodności, czystego powietrza i wody",
+        "3": "Produkty energooszczędne i ekologiczne",
+        "4": "Integracja społeczna i sprawiedliwa transformacja dla wszystkich regionów"
+      },
+      "sustainOutro": "Transformacja gospodarki Europy w <i>model cyrkularny</i> pozwoli zachować wartość produktów i materiałów, przynosząc korzyści ekonomiczne i społeczne oraz zmniejszając wpływ na środowisko."
+    }
   }
 }

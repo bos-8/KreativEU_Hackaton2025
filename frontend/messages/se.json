@@ -1,0 +1,191 @@
+{
+  "Navbar": {
+    "home": "Hem",
+    "feedback": "Feedback",
+    "planner": "Reseplanerare",
+    "demo": "Demo",
+    "architecture": "Arkitektur",
+    "about": "Om"
+  },
+  "HomePage": {
+    "text1": "Upptäck Europas <bold>dolda pärlor</bold>. Från historiska slott till hisnande kustlinjer – vi skapar resor som låter dig uppleva kultur, natur och historia — <italic>på ditt sätt</italic>.",
+    "text2": "Välj din destination och hur länge du vill utforska. Vår AI-drivna planerare bygger <italic>den perfekta resplanen</italic>, med balans mellan äventyr och avkoppling."
+  },
+  "Footer": {
+    "rights": "Alla rättigheter förbehållna."
+  },
+  "Theme": {
+    "system": {
+      "label": "System",
+      "title": "Systemläge"
+    },
+    "light": {
+      "label": "Ljust",
+      "title": "Ljust läge"
+    },
+    "dark": {
+      "label": "Mörkt",
+      "title": "Mörkt läge"
+    }
+  },
+  "CountryNames": {
+    "IT": "Italien",
+    "PT": "Portugal",
+    "DE": "Tyskland",
+    "NL": "Nederländerna",
+    "CZ": "Tjeckien",
+    "PL": "Polen",
+    "AT": "Österrike",
+    "SK": "Slovakien",
+    "RO": "Rumänien",
+    "BG": "Bulgarien",
+    "TR": "Turkiet",
+    "SE": "Sverige"
+  },
+  "Feedback": {
+    "title": "Feedback",
+    "description": "Dela snabb feedback om din resa. Vi har förifyllt detaljer från din plan/skickade information.",
+    "tripText": "Resedetaljer",
+    "country": "Land",
+    "city": "Stad",
+    "days": "Dagar",
+    "rating": "Hur var din resa totalt sett?",
+    "recommend": "Jag skulle rekommendera denna resa",
+    "exampleText": "Exempel: “Resan var mycket bra…”",
+    "back": "Tillbaka",
+    "submit": "Skicka feedback",
+    "success": "✅ Tack för din feedback! Den kommer att hjälpa andra användare på plattformen.",
+    "placeholder": "Resan var mycket bra! Älskade maten och de historiska platserna. Att ta sig runt till fots fungerade utmärkt. Hotellet motsvarade förväntningarna.\n\nHöjdpunkter: Colosseum, Vatikanmuseerna, Fontana di Trevi.\nTips: Boka stora sevärdheter i förväg för att undvika köer."
+  },
+  "Demo": {
+    "subtitle": "Planera din fritidsresa i Europa.",
+    "text2": "Reseinställningar",
+    "text3": "Välj <strong>landet</strong> du vill besöka och ange hur många <strong>dagar</strong> du vill spendera där. Denna information används för att förbereda din resplan.",
+    "text4": "Planera din resplan",
+    "country": "Land",
+    "days": "Dagar",
+    "daysHint": "Ange ett positivt heltal (max 30).",
+    "submit": "Skicka",
+    "reset": "Återställ",
+    "name": "Namn",
+    "description": "Beskrivning",
+    "visit": "Besök (min)",
+    "error": "Svar från backend",
+    "info1": "Vänligen ange antal dagar.",
+    "info2": "Dagarna måste vara ett positivt heltal.",
+    "info3": "Välj högst 30 dagar.",
+    "info4": "Vänligen välj ett land."
+  },
+  "Architecture": {
+    "title": "⚙️ Projektarkitektur",
+    "subtitle": "Nuvarande lösning",
+    "clientSide": "<b>Klientsidan</b> är byggd med <f>Next.js (React, TypeScript, Tailwind CSS, next-intl)</f>. Här väljer användaren <i>land</i>, antal <i>dagar</i> och språk. Förfrågan skickas via Axios till backend-API:et.",
+    "backendSide": "<b>Backend</b> drivs av <f>FastAPI (Python)</f>. Den hämtar <i>Sevärdheter (POI)</i> från en <f>SQLite-databas</f>, var och en med koordinater, besökstid och ett ”betyg”.",
+    "gaIntro": "För att beräkna resplanen använder vi en <f>Genetisk algoritm (GA)</f>. GA simulerar <i>evolutionär optimering</i>: flera slumpmässiga rutter genereras, utvärderas och förbättras iterativt. Utvärderingen baseras på:",
+    "gaPoints": {
+      "maximizeScore": "<b>Maximera betyget</b> för besökta POI",
+      "minimizeTravel": "<b>Minimera resetiden</b> mellan platser (ca 10 min/km till fots)",
+      "balanceLimits": "<b>Balansera dagliga gränser</b> (ca 8 timmars aktivitet per dag)"
+    },
+    "gaResult": "Den bästa rutten som hittas efter flera generationer returneras som ett JSON-svar, med detaljer som <i>dag, resetid i minuter, besökstid i minuter, ackumulerad tid och översättningar</i>.",
+    "systemFlow": "Systemflöde",
+    "flow": {
+      "1": "<b>Användaren</b> besöker <i>Next.js-frontend</i>-sidan.",
+      "2": "<b>Frontend</b> skickar reseförfrågan (land, dagar, språk) till <i>FastAPI-backend</i>.",
+      "3": "<b>Backend</b> hämtar <i>POI</i> och metadata från <i>SQLite-databasen</i>.",
+      "4": "Hämtade POI-data, inklusive översättningar, returneras till <i>FastAPI-modulen</i>.",
+      "5": "FastAPI skickar POI-data och reseparametrar till <b>GA</b>, som beräknar <i>den optimala resplanen</i>.",
+      "6": "GA-resultaten returneras till <i>FastAPI</i>, som väljer slutligt innehåll på det begärda språket.",
+      "7": "<b>Svaret</b> skickas tillbaka till <i>Next.js-frontend</i>, där resplanen visas för användaren."
+    },
+    "aws": "AWS Molnmigrering",
+    "awsIntro": "För att skala projektet för fler användare och större datamängder planerar vi att migrera till <b>AWS Cloud</b>-ekosystemet:",
+    "awsPoints": {
+      "1": "<b>AWS API Gateway</b> – säker ingångspunkt för klientförfrågningar",
+      "2": "<b>AWS Lambda</b> – serverlösa funktioner som kör GA-beräkningar",
+      "3": "<b>Amazon RDS / Aurora</b> – skalbar databas som ersätter SQLite",
+      "4": "<b>AWS S3</b> – lagring för bilder och statiska data",
+      "5": "<b>AWS CloudWatch</b> – övervakning, loggning och prestandamätning",
+      "6": "<b>AWS SageMaker (framtid)</b> – avancerade ML/AI-modeller för personliga resplaner"
+    },
+    "awsOutro": "Denna molnbaserade arkitektur säkerställer <i>hög tillgänglighet, global räckvidd och säkerhet på företagsnivå</i>.",
+    "future": "Framtida förbättringar",
+    "futureIntro": "Utöver infrastrukturen vill vi kontinuerligt förbättra <b>användarupplevelsen</b> och erbjuda smartare reseplaneringsfunktioner:",
+    "futurePoints": {
+      "1": "<b>Aktivitetsspårning</b> – lära av tidigare resplaner för mer relevanta förslag",
+      "2": "<b>Preferensbaserad planering</b> – låta användare ställa in tempo, budget eller teman (historia, mat, natur)",
+      "3": "<b>Flerlandsresor</b> – stödja resplaner över flera EU-länder i en plan",
+      "4": "<b>Samarbetsfunktioner</b> – dela och samredigera planer med vänner eller familj",
+      "5": "<b>Offline-tillgänglighet</b> – exportera resplaner för användning utan internet",
+      "6": "<b>Spelifiering</b> – belöna användare för att utforska nya platser eller hållbara val"
+    },
+    "qa": "Frågor & Svar",
+    "qaItems": {
+      "1": {
+        "q": "Varför använda en genetisk algoritm istället för Dijkstra eller A*?",
+        "a": "Traditionella algoritmer fungerar bra för kortaste vägar men har svårt med multiobjektiv optimering (poäng + tidsgränser + daglig struktur). GA erbjuder flexibilitet och nästan optimala lösningar snabbt."
+      },
+      "2": {
+        "q": "Varför SQLite just nu?",
+        "a": "SQLite är lättviktig, portabel och perfekt för prototyper. När projektet växer flyttar vi till en skalbar molndatabas som <b>PostgreSQL på AWS Aurora</b>."
+      },
+      "3": {
+        "q": "Hur kommer systemet att utvecklas?",
+        "a": "Vi ser framför oss personliga resplaner drivna av <i>maskininlärning</i>, liveintegration med transport-API:er och fleranvändar-samarbetsplanering, allt på molnbaserad infrastruktur."
+      },
+      "4": {
+        "q": "Kan jag planera resor över flera länder?",
+        "a": "Ja — framtida versioner kommer att stödja <b>flerlandsresor</b>, optimerade för gränsövergångar, kulturella teman och transporteffektivitet."
+      },
+      "5": {
+        "q": "Kommer planeraren att fungera offline?",
+        "a": "Vi planerar att införa ett <b>offlineläge</b> där resplaner kan sparas på enheten och nås utan internetanslutning — idealiskt vid utlandsresor."
+      },
+      "6": {
+        "q": "Hur kommer personaliseringen att fungera?",
+        "a": "Genom att analysera <i>användarpreferenser och tidigare val</i> kommer systemet att föreslå resplaner som matchar din rese­stil — vare sig det är mat, historia, natur eller nattliv."
+      },
+      "7": {
+        "q": "Tas hållbarhet i beaktande vid reseplanering?",
+        "a": "Absolut. Vår planerare uppmuntrar <b>miljövänliga resealternativ</b> som att gå, cykla eller ta tåget och lyfter fram destinationer som främjar hållbarhet och lokal kultur."
+      },
+      "8": {
+        "q": "Hur hanteras dataskydd?",
+        "a": "Vi följer <b>GDPR</b>-praxis. Användardata säljs aldrig och lagras säkert. I den framtida molnlösningen lägger vi till <i>änd-till-änd-kryptering</i> och användarkontrollerad dataradering."
+      }
+    }
+  },
+  "About": {
+    "team": "Team: 3U-nity Vision",
+    "visionText": "<y>3U</y> står för <b>Free You</b>, som symboliserar frihet och individualitet. Det återspeglar också <bl>EU</bl>, <b>Europeiska unionen</b>, som representerar enighet och samarbete. <in>Vision</in> pekar mot en gemensam, hållbar framtid för Europa.",
+    "lead": "Projektledare",
+    "strategy": "Strategi & Koordinering",
+    "consultant": "Försäljningskonsult",
+    "aiWebDev": "AI & Webbutveckling",
+    "architect": "Arkitekt",
+    "nextJsReact": "NEXT.js, TypeScript, Tailwind CSS, FastAPI",
+    "card": {
+      "title": "KreativEU",
+      "intro": "Fira Europas <y>kreativitet</y> och kulturella mångfald. Från konst och design till teknik och hållbar innovation – medborgare uppmuntras att utforska, dela och skapa en ljusare framtid — <i>tillsammans</i>.",
+      "pitch": "Välj din inspiration: kulturarv, innovation eller hållbarhet. Vår AI-drivna planerare bygger den <i>perfekta kulturella resan</i>, som kombinerar tradition med modern europeisk kreativitet.",
+      "valuesTitle": "🇪🇺 Europeiska värderingar",
+      "valuesIntro": "EU grundas på sex kärnvärden som utgör grunden för vårt samhälle:",
+      "valuesList": {
+        "1": "Respekt för mänsklig värdighet",
+        "2": "Frihet & Demokrati",
+        "3": "Jämlikhet & Rättsstatens principer",
+        "4": "Respekt för mänskliga rättigheter, inklusive minoriteters"
+      },
+      "valuesOutro": "Dessa värderingar är gemensamma för alla EU-länder och säkerställer ett samhälle byggt på pluralism, tolerans, rättvisa, solidaritet och icke-diskriminering. De finns i <b>Artikel 2 i Fördraget om Europeiska unionen</b>.",
+      "sustainTitle": "🌱 Hållbarhet",
+      "sustainIntro": "Europeiska kommissionen formar ett integrerat tillvägagångssätt över <g>industri, miljö, klimat och energipolitik</g> för att främja hållbar tillväxt, jobbskapande och innovation.",
+      "sustainList": {
+        "1": "Övergång till en klimatneutral, cirkulär ekonomi",
+        "2": "Skydd av biologisk mångfald, ren luft och vatten",
+        "3": "Energieffektiva och miljövänligt designade produkter",
+        "4": "Social inkludering och en rättvis omställning för alla regioner"
+      },
+      "sustainOutro": "Genom att omvandla Europas ekonomi till en <i>cirkulär modell</i> bevaras värdet av produkter och material, vilket ger stora ekonomiska och sociala fördelar samtidigt som miljöpåverkan minskar."
+    }
+  }
+}

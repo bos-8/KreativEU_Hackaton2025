@@ -33,7 +33,7 @@ export default function Home() {
   ];
 
   const [country, setCountry] = useState<string>('IT');
-  const [days, setDays] = useState<string>('1');
+  const [days, setDays] = useState<string>('14');
   const [formError, setFormError] = useState<string | null>(null);
   const [apiResponse, setApiResponse] = useState<any>(null);
 

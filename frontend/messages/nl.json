@@ -1,0 +1,191 @@
+{
+  "Navbar": {
+    "home": "Startpagina",
+    "feedback": "Feedback",
+    "planner": "Reisplanner",
+    "demo": "Demo",
+    "architecture": "Architectuur",
+    "about": "Over ons"
+  },
+  "HomePage": {
+    "text1": "Ontdek de <bold>verborgen parels</bold> van Europa. Van historische kastelen tot adembenemende kusten – wij creëren reizen die je cultuur, natuur en geschiedenis laten ervaren — <italic>op jouw manier</italic>.",
+    "text2": "Kies je bestemming en hoe lang je wilt verkennen. Onze AI-gestuurde planner bouwt het <italic>perfecte reisschema</italic>, met een balans tussen avontuur en ontspanning."
+  },
+  "Footer": {
+    "rights": "Alle rechten voorbehouden."
+  },
+  "Theme": {
+    "system": {
+      "label": "Systeem",
+      "title": "Systeemmodus"
+    },
+    "light": {
+      "label": "Licht",
+      "title": "Lichte modus"
+    },
+    "dark": {
+      "label": "Donker",
+      "title": "Donkere modus"
+    }
+  },
+  "CountryNames": {
+    "IT": "Italië",
+    "PT": "Portugal",
+    "DE": "Duitsland",
+    "NL": "Nederland",
+    "CZ": "Tsjechië",
+    "PL": "Polen",
+    "AT": "Oostenrijk",
+    "SK": "Slowakije",
+    "RO": "Roemenië",
+    "BG": "Bulgarije",
+    "TR": "Turkije",
+    "SE": "Zweden"
+  },
+  "Feedback": {
+    "title": "Feedback",
+    "description": "Deel snel je feedback over je reis. We hebben details uit je plan/indiening vooraf ingevuld.",
+    "tripText": "Reisdetails",
+    "country": "Land",
+    "city": "Stad",
+    "days": "Dagen",
+    "rating": "Hoe was je reis in het algemeen?",
+    "recommend": "Ik zou deze reis aanbevelen",
+    "exampleText": "Voorbeeld: “De reis was erg goed…”",
+    "back": "Terug",
+    "submit": "Feedback versturen",
+    "success": "✅ Bedankt voor je feedback! Het helpt andere gebruikers op het platform.",
+    "placeholder": "De reis was erg goed! Ik hield van het eten en de historische bezienswaardigheden. Te voet reizen werkte geweldig. Het hotel voldeed aan de verwachtingen.\n\nHoogtepunten: Colosseum, Vaticaanse Musea, Trevifontein.\nTips: Boek belangrijke attracties vooraf om wachtrijen te vermijden."
+  },
+  "Demo": {
+    "subtitle": "Plan je trip in Europa.",
+    "text2": "Reisinstellingen",
+    "text3": "Selecteer het <strong>land</strong> dat je wilt bezoeken en geef aan hoeveel <strong>dagen</strong> je daar wilt doorbrengen. Deze informatie wordt gebruikt om je reisschema voor te bereiden.",
+    "text4": "Plan je reisschema",
+    "country": "Land",
+    "days": "Dagen",
+    "daysHint": "Voer een positief geheel getal in (max. 30).",
+    "submit": "Versturen",
+    "reset": "Resetten",
+    "name": "Naam",
+    "description": "Beschrijving",
+    "visit": "Bezoek (min)",
+    "error": "Backend-respons",
+    "info1": "Voer het aantal dagen in.",
+    "info2": "Dagen moeten een positief geheel getal zijn.",
+    "info3": "Kies maximaal 30 dagen.",
+    "info4": "Selecteer een land."
+  },
+  "Architecture": {
+    "title": "⚙️ Projectarchitectuur",
+    "subtitle": "Huidige oplossing",
+    "clientSide": "De <b>client</b>-zijde is gebouwd met <f>Next.js (React, TypeScript, Tailwind CSS, next-intl)</f>. Hier kiezen gebruikers hun <i>land</i>, aantal <i>dagen</i> en taal. De aanvraag wordt via Axios naar de backend-API gestuurd.",
+    "backendSide": "De <b>backend</b> draait op <f>FastAPI (Python)</f>. Het haalt <i>Points of Interest</i> (POI’s) op uit een <f>SQLite-database</f>, elk met coördinaten, bezoektijd en een \"score\".",
+    "gaIntro": "Voor het berekenen van de route gebruiken we een <f>Genetisch Algoritme (GA)</f>. Het GA simuleert <i>evolutionaire optimalisatie</i>: meerdere willekeurige routes worden gegenereerd, geëvalueerd en iteratief verbeterd. De evaluatie is gebaseerd op:",
+    "gaPoints": {
+      "maximizeScore": "<b>Maximaliseren van de score</b> van bezochte POI’s",
+      "minimizeTravel": "<b>Minimaliseren van reistijd</b> tussen locaties (ongeveer 10 min/km te voet)",
+      "balanceLimits": "<b>Balans van daglimieten</b> (ongeveer 8 uur activiteit per dag)"
+    },
+    "gaResult": "De beste route die na meerdere generaties is gevonden, wordt teruggegeven als JSON met details: <i>dag, reistijd, bezoektijd, cumulatieve tijd en vertalingen</i>.",
+    "systemFlow": "Systeemstroom",
+    "flow": {
+      "1": "De <b>gebruiker</b> bezoekt de <i>Next.js-frontend</i>.",
+      "2": "De <b>frontend</b> stuurt de aanvraag (land, dagen, taal) naar de <i>FastAPI-backend</i>.",
+      "3": "De <b>backend</b> haalt <i>POI’s</i> en metadata op uit de <i>SQLite-database</i>.",
+      "4": "De POI-gegevens, inclusief vertalingen, worden teruggestuurd naar de <i>FastAPI-verwerkingsmodule</i>.",
+      "5": "FastAPI stuurt de gegevens en parameters naar het <b>GA</b>, dat de <i>optimale route</i> berekent.",
+      "6": "De GA-resultaten worden teruggestuurd naar <i>FastAPI</i>, dat de uiteindelijke inhoud in de gevraagde taal selecteert.",
+      "7": "De <b>respons</b> wordt teruggestuurd naar de <i>Next.js-frontend</i>, waar de route aan de gebruiker wordt getoond."
+    },
+    "aws": "Migratie naar AWS Cloud",
+    "awsIntro": "Om het project op te schalen voor meer gebruikers en grotere datasets, willen we migreren naar het <b>AWS Cloud</b>-ecosysteem:",
+    "awsPoints": {
+      "1": "<b>AWS API Gateway</b> – beveiligd toegangspunt voor clientaanvragen",
+      "2": "<b>AWS Lambda</b> – serverless functies die GA-berekeningen uitvoeren",
+      "3": "<b>Amazon RDS / Aurora</b> – schaalbare database ter vervanging van SQLite",
+      "4": "<b>AWS S3</b> – opslag voor afbeeldingen en statische data",
+      "5": "<b>AWS CloudWatch</b> – monitoring, logging en prestatiemetrics",
+      "6": "<b>AWS SageMaker (toekomst)</b> – geavanceerde ML/AI-modellen voor gepersonaliseerde routes"
+    },
+    "awsOutro": "Deze cloud-native architectuur garandeert <i>hoge beschikbaarheid, wereldwijd bereik en beveiliging op ondernemingsniveau</i>.",
+    "future": "Toekomstige verbeteringen",
+    "futureIntro": "Naast infrastructuur willen we continu de <b>gebruikerservaring</b> verbeteren en slimmere functies voor reisplanning aanbieden:",
+    "futurePoints": {
+      "1": "<b>Activiteitstracking</b> – leren van eerdere routes om betere suggesties te doen",
+      "2": "<b>Voorkeurgebaseerde planning</b> – gebruikers tempo, budget of thema’s (geschiedenis, eten, natuur) laten instellen",
+      "3": "<b>Meerlandenreizen</b> – ondersteuning voor routes door meerdere EU-landen in één plan",
+      "4": "<b>Samenwerkingsfuncties</b> – plannen delen en samen bewerken met vrienden of familie",
+      "5": "<b>Offline beschikbaarheid</b> – routes exporteren voor gebruik zonder internet",
+      "6": "<b>Gamificatie</b> – gebruikers belonen voor het verkennen van nieuwe plekken of duurzame keuzes"
+    },
+    "qa": "Veelgestelde vragen",
+    "qaItems": {
+      "1": {
+        "q": "Waarom een Genetisch Algoritme gebruiken in plaats van Dijkstra of A*?",
+        "a": "Klassieke algoritmes vinden kortste paden goed, maar kunnen niet goed omgaan met multi-doel optimalisatie (score + tijd + dagstructuur). GA biedt flexibiliteit en bijna-optimale oplossingen snel."
+      },
+      "2": {
+        "q": "Waarom nu SQLite?",
+        "a": "SQLite is lichtgewicht, draagbaar en perfect voor prototyping. Naarmate het project groeit, schakelen we over naar een schaalbare database zoals <b>PostgreSQL op AWS Aurora</b>."
+      },
+      "3": {
+        "q": "Hoe zal het systeem zich ontwikkelen?",
+        "a": "We voorzien gepersonaliseerde routes met <i>machine learning</i>, live integratie met transport-API’s en collaboratieve planning met meerdere gebruikers, alles op cloud-native infrastructuur."
+      },
+      "4": {
+        "q": "Kan ik reizen door meerdere landen plannen?",
+        "a": "Ja — toekomstige versies zullen <b>meerlandenroutes</b> ondersteunen, geoptimaliseerd voor grensovergangen, culturele thema’s en transportefficiëntie."
+      },
+      "5": {
+        "q": "Werkt de planner offline?",
+        "a": "We zijn van plan een <b>offline modus</b> te introduceren, waarin routes kunnen worden opgeslagen en geraadpleegd zonder internetverbinding."
+      },
+      "6": {
+        "q": "Hoe werkt personalisatie?",
+        "a": "Door <i>voorkeuren en eerdere keuzes</i> te analyseren, stelt het systeem routes voor die passen bij jouw stijl – of het nu eten, geschiedenis, natuur of nachtleven is."
+      },
+      "7": {
+        "q": "Wordt duurzaamheid meegenomen?",
+        "a": "Absoluut. De planner stimuleert <b>eco-vriendelijke opties</b> zoals wandelen, fietsen of treinreizen en benadrukt bestemmingen die duurzaamheid en lokale cultuur promoten."
+      },
+      "8": {
+        "q": "Hoe wordt omgegaan met gegevensprivacy?",
+        "a": "We volgen <b>AVG-conforme praktijken</b>. Gebruikersdata wordt nooit verkocht en wordt veilig opgeslagen. In de cloud voegen we <i>end-to-end encryptie</i> en door de gebruiker gecontroleerde gegevensverwijdering toe."
+      }
+    }
+  },
+  "About": {
+    "team": "Team: 3U-nity Vision",
+    "visionText": "<y>3U</y> staat voor <b>Free You</b>, dat vrijheid en individualiteit symboliseert. Het verwijst ook naar <bl>EU</bl>, de <b>Europese Unie</b>, die eenheid en samenwerking vertegenwoordigt. <in>Vision</in> wijst op een gedeelde, duurzame toekomst voor Europa.",
+    "lead": "Projectleider",
+    "strategy": "Strategie & Coördinatie",
+    "consultant": "Verkoopconsultant",
+    "aiWebDev": "AI & Webontwikkeling",
+    "architect": "Architect",
+    "nextJsReact": "NEXT.js, TypeScript, Tailwind CSS, FastAPI",
+    "card": {
+      "title": "KreativEU",
+      "intro": "Vier de <y>creativiteit</y> en culturele diversiteit van Europa. Van kunst en design tot technologie en duurzame innovatie – burgers worden aangemoedigd om te ontdekken, te delen en samen een betere toekomst te creëren — <i>samen</i>.",
+      "pitch": "Kies je inspiratie: erfgoed, innovatie of duurzaamheid. Onze AI-planner bouwt de <i>perfecte culturele reis</i>, die traditie en moderne Europese creativiteit combineert.",
+      "valuesTitle": "🇪🇺 Europese waarden",
+      "valuesIntro": "De EU is gebaseerd op zes kernwaarden die de basis vormen van onze samenleving:",
+      "valuesList": {
+        "1": "Respect voor menselijke waardigheid",
+        "2": "Vrijheid & Democratie",
+        "3": "Gelijkheid & Rechtsstaat",
+        "4": "Respect voor mensenrechten, inclusief die van minderheden"
+      },
+      "valuesOutro": "Deze waarden zijn gemeenschappelijk voor alle EU-landen en zorgen voor een samenleving gebaseerd op pluralisme, tolerantie, rechtvaardigheid, solidariteit en non-discriminatie. Ze zijn vastgelegd in <b>Artikel 2 van het Verdrag betreffende de Europese Unie</b>.",
+      "sustainTitle": "🌱 Duurzaamheid",
+      "sustainIntro": "De Europese Commissie ontwikkelt een geïntegreerde aanpak in <g>industrie, milieu, klimaat en energiebeleid</g> om duurzame groei, werkgelegenheid en innovatie te bevorderen.",
+      "sustainList": {
+        "1": "Overgang naar een klimaatneutrale, circulaire economie",
+        "2": "Bescherming van biodiversiteit, schone lucht en water",
+        "3": "Energie-efficiënte en eco-ontworpen producten",
+        "4": "Sociale inclusie en een rechtvaardige transitie voor alle regio’s"
+      },
+      "sustainOutro": "Door de Europese economie om te vormen tot een <i>circulair model</i> wordt de waarde van producten en materialen behouden, wat aanzienlijke economische en sociale voordelen oplevert en de milieu-impact vermindert."
+    }
+  }
+}

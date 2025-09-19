@@ -1,0 +1,191 @@
+{
+  "Navbar": {
+    "home": "Startseite",
+    "feedback": "Feedback",
+    "planner": "Reiseplaner",
+    "demo": "Demo",
+    "architecture": "Architektur",
+    "about": "Über uns"
+  },
+  "HomePage": {
+    "text1": "Entdecke die <bold>verborgenen Schätze</bold> Europas. Von historischen Burgen bis hin zu atemberaubenden Küsten – wir gestalten Reisen, die dir Kultur, Natur und Geschichte näherbringen — <italic>auf deine Art</italic>.",
+    "text2": "Wähle dein Reiseziel und wie lange du es erkunden möchtest. Unser KI-gestützter Planer erstellt die <italic>perfekte Reiseroute</italic>, die Abenteuer und Entspannung ausbalanciert."
+  },
+  "Footer": {
+    "rights": "Alle Rechte vorbehalten."
+  },
+  "Theme": {
+    "system": {
+      "label": "System",
+      "title": "Systemmodus"
+    },
+    "light": {
+      "label": "Hell",
+      "title": "Heller Modus"
+    },
+    "dark": {
+      "label": "Dunkel",
+      "title": "Dunkler Modus"
+    }
+  },
+  "CountryNames": {
+    "IT": "Italien",
+    "PT": "Portugal",
+    "DE": "Deutschland",
+    "NL": "Niederlande",
+    "CZ": "Tschechien",
+    "PL": "Polen",
+    "AT": "Österreich",
+    "SK": "Slowakei",
+    "RO": "Rumänien",
+    "BG": "Bulgarien",
+    "TR": "Türkei",
+    "SE": "Schweden"
+  },
+  "Feedback": {
+    "title": "Feedback",
+    "description": "Teile kurzes Feedback zu deiner Reise. Wir haben die Details aus deinem Plan/Vorschlag vorausgefüllt.",
+    "tripText": "Reisedetails",
+    "country": "Land",
+    "city": "Stadt",
+    "days": "Tage",
+    "rating": "Wie war deine Reise insgesamt?",
+    "recommend": "Ich würde diese Reise empfehlen",
+    "exampleText": "Beispiel: “Die Reise war sehr gut…”",
+    "back": "Zurück",
+    "submit": "Feedback senden",
+    "success": "✅ Vielen Dank für dein Feedback! Es wird anderen Nutzern auf der Plattform helfen.",
+    "placeholder": "Die Reise war sehr gut! Ich habe das Essen und die historischen Sehenswürdigkeiten geliebt. Zu Fuß unterwegs zu sein, war großartig. Das Hotel entsprach den Erwartungen.\n\nHighlights: Kolosseum, Vatikanische Museen, Trevi-Brunnen.\nTipps: Große Attraktionen im Voraus buchen, um Warteschlangen zu vermeiden."
+  },
+  "Demo": {
+    "subtitle": "Plane deinen Kurztrip in Europa.",
+    "text2": "Reiseeinstellungen",
+    "text3": "Wähle das <strong>Land</strong>, das du besuchen möchtest, und gib an, wie viele <strong>Tage</strong> du dort verbringen möchtest. Diese Informationen werden für die Erstellung deiner Reiseroute verwendet.",
+    "text4": "Plane deine Reiseroute",
+    "country": "Land",
+    "days": "Tage",
+    "daysHint": "Bitte eine positive ganze Zahl eingeben (max. 30).",
+    "submit": "Absenden",
+    "reset": "Zurücksetzen",
+    "name": "Name",
+    "description": "Beschreibung",
+    "visit": "Besuch (Min.)",
+    "error": "Backend-Antwort",
+    "info1": "Bitte gib die Anzahl der Tage ein.",
+    "info2": "Die Tage müssen eine positive ganze Zahl sein.",
+    "info3": "Bitte wähle höchstens 30 Tage.",
+    "info4": "Bitte wähle ein Land."
+  },
+  "Architecture": {
+    "title": "⚙️ Projektarchitektur",
+    "subtitle": "Aktuelle Lösung",
+    "clientSide": "Die <b>Client</b>-Seite ist mit <f>Next.js (React, TypeScript, Tailwind CSS, next-intl)</f> gebaut. Hier wählen die Nutzer ihr <i>Land</i>, die Anzahl der <i>Tage</i> und die Sprache. Die Anfrage wird per Axios an das Backend gesendet.",
+    "backendSide": "Das <b>Backend</b> basiert auf <f>FastAPI (Python)</f>. Es ruft <i>Points of Interest</i> (POIs) aus einer <f>SQLite-Datenbank</f> ab, jeweils mit Koordinaten, Besuchsdauer und einem „Score“.",
+    "gaIntro": "Für die Berechnung der Route nutzen wir einen <f>Genetischen Algorithmus (GA)</f>. Der GA simuliert <i>evolutionäre Optimierung</i>: Mehrere zufällige Routen werden erstellt, bewertet und iterativ verbessert. Die Bewertung basiert auf:",
+    "gaPoints": {
+      "maximizeScore": "<b>Maximierung des Scores</b> besuchter POIs",
+      "minimizeTravel": "<b>Minimierung der Reisezeit</b> zwischen Orten (ca. 10 Min./km zu Fuß)",
+      "balanceLimits": "<b>Ausgleich der täglichen Limits</b> (ca. 8 Stunden Aktivität pro Tag)"
+    },
+    "gaResult": "Die beste Route nach mehreren Generationen wird als JSON zurückgegeben, mit Details wie <i>Tag, Reisezeit, Besuchszeit, kumulative Zeit und Übersetzungen</i>.",
+    "systemFlow": "Systemablauf",
+    "flow": {
+      "1": "Der <b>Nutzer</b> besucht die Seite im <i>Next.js-Frontend</i>.",
+      "2": "Das <b>Frontend</b> sendet die Anfrage (Land, Tage, Sprache) an das <i>FastAPI-Backend</i>.",
+      "3": "Das <b>Backend</b> ruft <i>POIs</i> und Metadaten aus der <i>SQLite-Datenbank</i> ab.",
+      "4": "Die POI-Daten inklusive Übersetzungen werden an das <i>FastAPI-Modul</i> zurückgegeben.",
+      "5": "FastAPI übergibt die Daten an den <b>GA</b>, der die <i>optimale Route</i> berechnet.",
+      "6": "Die GA-Ergebnisse werden an <i>FastAPI</i> zurückgegeben, das die Inhalte in der gewünschten Sprache auswählt.",
+      "7": "Die <b>Antwort</b> wird an das <i>Next.js-Frontend</i> gesendet, wo die Route angezeigt wird."
+    },
+    "aws": "Migration in die AWS Cloud",
+    "awsIntro": "Um das Projekt für mehr Nutzer und größere Datensätze zu skalieren, planen wir die Migration in das <b>AWS-Cloud</b>-Ökosystem:",
+    "awsPoints": {
+      "1": "<b>AWS API Gateway</b> – sicherer Einstiegspunkt für Client-Anfragen",
+      "2": "<b>AWS Lambda</b> – serverlose Funktionen für GA-Berechnungen",
+      "3": "<b>Amazon RDS / Aurora</b> – skalierbare Datenbank statt SQLite",
+      "4": "<b>AWS S3</b> – Speicherung für Bilder und statische Daten",
+      "5": "<b>AWS CloudWatch</b> – Monitoring, Logging und Performance-Metriken",
+      "6": "<b>AWS SageMaker (zukünftig)</b> – erweiterte ML/AI-Modelle für personalisierte Routen"
+    },
+    "awsOutro": "Diese cloud-native Architektur gewährleistet <i>hohe Verfügbarkeit, globale Reichweite und Unternehmenssicherheit</i>.",
+    "future": "Zukünftige Verbesserungen",
+    "futureIntro": "Über die Infrastruktur hinaus wollen wir kontinuierlich die <b>Benutzererfahrung</b> verbessern und intelligentere Reiseplanungsfunktionen bieten:",
+    "futurePoints": {
+      "1": "<b>Aktivitäts-Tracking</b> – aus vergangenen Routen lernen, um bessere Vorschläge zu machen",
+      "2": "<b>Präferenzbasierte Planung</b> – Tempo, Budget oder Themen (Geschichte, Essen, Natur) berücksichtigen",
+      "3": "<b>Mehr-Länder-Reisen</b> – Unterstützung für Reisen durch mehrere EU-Länder in einem Plan",
+      "4": "<b>Kollaboration</b> – Pläne mit Freunden oder Familie teilen und gemeinsam bearbeiten",
+      "5": "<b>Offline-Verfügbarkeit</b> – Export von Routen zur Nutzung ohne Internet",
+      "6": "<b>Gamification</b> – Nutzer für das Erkunden neuer Orte oder nachhaltige Entscheidungen belohnen"
+    },
+    "qa": "FAQ",
+    "qaItems": {
+      "1": {
+        "q": "Warum einen Genetischen Algorithmus statt Dijkstra oder A*?",
+        "a": "Klassische Algorithmen finden kürzeste Wege, sind aber nicht für Multi-Objektiv-Optimierung geeignet (Score + Zeit + Tagesstruktur). Der GA ist flexibel und liefert schnell nahezu optimale Lösungen."
+      },
+      "2": {
+        "q": "Warum SQLite im Moment?",
+        "a": "SQLite ist leichtgewichtig, portabel und perfekt für Prototypen. Mit wachsendem Projekt wechseln wir zu einer skalierbaren Datenbank wie <b>PostgreSQL auf AWS Aurora</b>."
+      },
+      "3": {
+        "q": "Wie wird sich das System entwickeln?",
+        "a": "Wir planen personalisierte Routen mit <i>Machine Learning</i>, Live-Integration mit Transport-APIs und kollaborative Mehrbenutzerplanung – alles in einer cloud-nativen Infrastruktur."
+      },
+      "4": {
+        "q": "Kann ich Reisen über mehrere Länder planen?",
+        "a": "Ja — zukünftige Versionen werden <b>Mehr-Länder-Routen</b> unterstützen, optimiert für Grenzübertritte, kulturelle Themen und Transporte."
+      },
+      "5": {
+        "q": "Wird der Planer offline funktionieren?",
+        "a": "Ja, wir planen einen <b>Offline-Modus</b>, in dem Routen gespeichert und ohne Internet genutzt werden können."
+      },
+      "6": {
+        "q": "Wie funktioniert die Personalisierung?",
+        "a": "Durch Analyse von <i>Präferenzen und vergangenen Entscheidungen</i> schlägt das System passende Routen vor – ob Essen, Geschichte, Natur oder Nachtleben."
+      },
+      "7": {
+        "q": "Wird Nachhaltigkeit berücksichtigt?",
+        "a": "Absolut. Der Planer fördert <b>umweltfreundliche Optionen</b> wie zu Fuß gehen, Fahrrad oder Zugfahren und hebt nachhaltige Ziele hervor."
+      },
+      "8": {
+        "q": "Wie wird der Datenschutz gehandhabt?",
+        "a": "Wir befolgen <b>DSGVO-konforme Praktiken</b>. Nutzerdaten werden niemals verkauft und sicher gespeichert. In der Cloud fügen wir <i>Ende-zu-Ende-Verschlüsselung</i> und nutzerkontrollierte Datenlöschung hinzu."
+      }
+    }
+  },
+  "About": {
+    "team": "Team: 3U-nity Vision",
+    "visionText": "<y>3U</y> steht für <b>Free You</b>, symbolisiert Freiheit und Individualität. Es spiegelt auch <bl>EU</bl>, die <b>Europäische Union</b>, wider, die Einheit und Zusammenarbeit darstellt. <in>Vision</in> weist auf eine gemeinsame, nachhaltige Zukunft Europas hin.",
+    "lead": "Projektleiter",
+    "strategy": "Strategie & Koordination",
+    "consultant": "Vertriebskonsultant",
+    "aiWebDev": "KI & Webentwicklung",
+    "architect": "Architekt",
+    "nextJsReact": "NEXT.js, TypeScript, Tailwind CSS, FastAPI",
+    "card": {
+      "title": "KreativEU",
+      "intro": "Feiere die <y>Kreativität</y> und kulturelle Vielfalt Europas. Von Kunst und Design bis hin zu Technologie und nachhaltiger Innovation – Bürger werden ermutigt, zu erkunden, zu teilen und gemeinsam eine bessere Zukunft zu schaffen — <i>gemeinsam</i>.",
+      "pitch": "Wähle deine Inspiration: Erbe, Innovation oder Nachhaltigkeit. Unser KI-Planer erstellt die <i>perfekte Kulturreise</i>, die Tradition mit moderner europäischer Kreativität verbindet.",
+      "valuesTitle": "🇪🇺 Europäische Werte",
+      "valuesIntro": "Die EU basiert auf sechs Grundwerten, die das Fundament unserer Gesellschaft bilden:",
+      "valuesList": {
+        "1": "Achtung der Menschenwürde",
+        "2": "Freiheit & Demokratie",
+        "3": "Gleichheit & Rechtsstaatlichkeit",
+        "4": "Achtung der Menschenrechte, einschließlich der Rechte von Minderheiten"
+      },
+      "valuesOutro": "Diese Werte sind allen EU-Ländern gemeinsam und sichern eine Gesellschaft, die auf Pluralismus, Toleranz, Gerechtigkeit, Solidarität und Nichtdiskriminierung beruht. Sie sind in <b>Artikel 2 des Vertrags über die Europäische Union</b> verankert.",
+      "sustainTitle": "🌱 Nachhaltigkeit",
+      "sustainIntro": "Die Europäische Kommission entwickelt einen integrierten Ansatz in den Bereichen <g>Industrie, Umwelt, Klima und Energie</g>, um nachhaltiges Wachstum, Beschäftigung und Innovation zu fördern.",
+      "sustainList": {
+        "1": "Übergang zu einer klimaneutralen, zirkulären Wirtschaft",
+        "2": "Schutz der Biodiversität, saubere Luft und Wasser",
+        "3": "Energieeffiziente und ökologisch gestaltete Produkte",
+        "4": "Soziale Inklusion und gerechter Übergang für alle Regionen"
+      },
+      "sustainOutro": "Durch die Umwandlung der europäischen Wirtschaft in ein <i>zirkuläres Modell</i> wird der Wert von Produkten und Materialien bewahrt, wodurch bedeutende wirtschaftliche und soziale Vorteile entstehen und die Umweltbelastung reduziert wird."
+    }
+  }
+}

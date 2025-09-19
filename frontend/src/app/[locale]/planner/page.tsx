@@ -4,6 +4,7 @@
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { Input } from '@/components/ui/Input'
+import { useTranslations } from "next-intl";
 import { Save, ArrowClockwise, Send } from 'react-bootstrap-icons'
 
 import {
@@ -69,8 +70,6 @@ const CURRENCIES = ['EUR', 'CZK', 'PLN', 'RON', 'BGN', 'TRY', 'SEK', 'GBP', 'USD
 
 import { Wifi, Snow, Bug } from 'react-bootstrap-icons'
 
-
-
 import {
   EggFried,
   Palette,
@@ -83,8 +82,6 @@ import {
   Book,
   Trophy,
 } from 'react-bootstrap-icons'
-
-
 
 export default function TripPlannerPage() {
   const [withChildren, setWithChildren] = React.useState(false)
@@ -100,7 +97,6 @@ export default function TripPlannerPage() {
     { key: 'bus', name: 'Bus/Coach', icon: <BusFront />, color: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100', checked: false },
     { key: 'bike', name: 'Bicycle', icon: <Bicycle />, color: 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-100', checked: false },
   ]
-
 
   const interests = [
     { name: 'Food', icon: <EggFried />, checked: true, color: 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-100' },

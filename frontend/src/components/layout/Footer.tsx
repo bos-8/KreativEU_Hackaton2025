@@ -7,7 +7,17 @@ export default function Footer() {
   return (
     <footer className="z-10 bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 text-center py-2 text-sm text-gray-500 dark:text-gray-400">
       <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-        <div>&copy; {new Date().getFullYear()} 3U-nity Vision {t("rights")}</div>
+        <div>
+          &copy; {new Date().getFullYear()} 3U-nity Vision {t("rights")} ·{" "}
+          <a
+            href="/license.txt"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-gray-700 dark:hover:text-gray-200"
+          >
+            License
+          </a>
+        </div>
         <div className="flex items-center gap-2 sm:ml-auto">
           <LangSelector />
           <ThemeSelector />

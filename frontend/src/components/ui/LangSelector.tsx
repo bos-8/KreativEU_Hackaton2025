@@ -8,12 +8,20 @@ import { Translate } from 'react-bootstrap-icons';
 type LocaleDef = { code: string; label: string; flag?: string };
 
 const LOCALES: LocaleDef[] = [
-  { code: 'pl', label: 'Polski', flag: '🇵🇱' },
   { code: 'en', label: 'English', flag: '🇬🇧' },
-  { code: 'es', label: 'Español', flag: '🇪🇸' },
   { code: 'it', label: 'Italiano', flag: '🇮🇹' },
+  { code: 'pt', label: 'Português', flag: '🇵🇹' },
+  { code: 'pl', label: 'Polski', flag: '🇵🇱' },
+  { code: 'es', label: 'Español', flag: '🇪🇸' },
   { code: 'cs', label: 'Čeština', flag: '🇨🇿' },
-  { code: 'pt', label: 'Português', flag: '🇵🇹' }
+  { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
+  { code: 'nl', label: 'Nederlands', flag: '🇳🇱' },
+  { code: 'at', label: 'Deutsch (Österreich)', flag: '🇦🇹' },
+  { code: 'sk', label: 'Slovenčina', flag: '🇸🇰' },
+  { code: 'ro', label: 'Română', flag: '🇷🇴' },
+  { code: 'bg', label: 'Български', flag: '🇧🇬' },
+  { code: 'tr', label: 'Türkçe', flag: '🇹🇷' },
+  { code: 'se', label: 'Svenska', flag: '🇸🇪' }
 ];
 
 function replaceLocaleInPath(pathname: string, newLocale: string): string {

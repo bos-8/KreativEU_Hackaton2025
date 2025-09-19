@@ -51,8 +51,8 @@ export default function Home() {
                 className="w-24 h-24 rounded-full border-2 border-white shadow-md object-cover"
               />
               <h3 className="mt-4 text-lg font-semibold text-white">Claudia Germoni</h3>
-              <p className="text-sm text-gray-300">Project Lead</p>
-              <p className="text-xs text-gray-400">Strategy & Coordination</p>
+              <p className="text-sm text-gray-300">{t('lead')}</p>
+              <p className="text-xs text-gray-400">{t('strategy')}</p>
             </div>
 
             {/* Member 2 */}
@@ -63,8 +63,8 @@ export default function Home() {
                 className="w-24 h-24 rounded-full border-2 border-white shadow-md object-cover"
               />
               <h3 className="mt-4 text-lg font-semibold text-white">André de Jesus Elias Costa</h3>
-              <p className="text-sm text-gray-300">Selling Consultant</p>
-              <p className="text-xs text-gray-400">AI & Web Development</p>
+              <p className="text-sm text-gray-300">{t('consultant')}</p>
+              <p className="text-xs text-gray-400">{t('aiWebDev')}</p>
             </div>
 
             {/* Member 3 */}
@@ -75,65 +75,69 @@ export default function Home() {
                 className="w-24 h-24 rounded-full border-2 border-white shadow-md object-cover"
               />
               <h3 className="mt-4 text-lg font-semibold text-white">Kacper Boś</h3>
-              <p className="text-sm text-gray-300">Architect</p>
-              <p className="text-xs text-gray-400">next.js React, TypeScript, Tailwind CSS</p>
+              <p className="text-sm text-gray-300">{t('architect')}</p>
+              <p className="text-xs text-gray-400">{t('nextJsReact')}</p>
             </div>
           </div>
         </section>
 
-        {/* === Glass effect card with text === */}
         <div className="relative z-10 max-w-4xl mx-auto p-10 mt-12 rounded-2xl bg-white/20 dark:bg-black/60 backdrop-blur-md shadow-xl text-center">
-          <h1 className="text-5xl font-extrabold text-white drop-shadow-lg">WandrEU</h1>
+          <h1 className="text-5xl font-extrabold text-white drop-shadow-lg">{t('card.title')}</h1>
 
           {/* Intro */}
           <p className="mt-6 text-lg text-gray-200 leading-relaxed">
-            Discover the <span className="font-semibold text-yellow-300">hidden gems</span> of Europe.
-            From historic castles to breathtaking coastlines, we craft journeys that let you experience
-            culture, nature, and history — <span className="italic text-indigo-300">your way</span>.
+            {t.rich('card.intro', {
+              y: (chunks) => <span className="font-semibold text-yellow-300">{chunks}</span>,
+              i: (chunks) => <span className="italic text-indigo-300">{chunks}</span>
+            })}
           </p>
 
           {/* Trip pitch */}
           <p className="mt-4 text-base text-gray-300">
-            Choose your destination and how long you’d like to explore.
-            Our AI-powered planner will build the <span className="italic text-indigo-300">perfect itinerary</span>,
-            balancing adventure and relaxation.
+            {t.rich('card.pitch', {
+              i: (chunks) => <span className="italic text-indigo-300">{chunks}</span>
+            })}
           </p>
 
-          {/* EU values */}
+          {/* European Values */}
           <div className="mt-8 text-left text-gray-200">
-            <h2 className="text-2xl font-bold text-white mb-3">🇪🇺 European Values</h2>
-            <p className="mb-2">
-              The EU is founded on six core values that shape our society:
-            </p>
+            <h2 className="text-2xl font-bold text-white mb-3">{t('card.valuesTitle')}</h2>
+            <p className="mb-2">{t('card.valuesIntro')}</p>
             <ul className="list-disc list-inside space-y-1 text-sm text-gray-300">
-              <li>Respect for human dignity</li>
-              <li>Freedom & Democracy</li>
-              <li>Equality & Rule of law</li>
-              <li>Respect for human rights, including those of minorities</li>
+              <li>{t('card.valuesList.1')}</li>
+              <li>{t('card.valuesList.2')}</li>
+              <li>{t('card.valuesList.3')}</li>
+              <li>{t('card.valuesList.4')}</li>
             </ul>
             <p className="mt-3 text-sm text-gray-400">
-              These values ensure pluralism, tolerance, justice, solidarity and non-discrimination across Europe.
+              {t.rich('card.valuesOutro', {
+                b: (chunks) => <strong>{chunks}</strong>
+              })}
             </p>
           </div>
 
           {/* Sustainability */}
           <div className="mt-8 text-left text-gray-200">
-            <h2 className="text-2xl font-bold text-white mb-3">🌱 Sustainability</h2>
+            <h2 className="text-2xl font-bold text-white mb-3">{t('card.sustainTitle')}</h2>
             <p className="mb-2 text-sm">
-              The European Union is transforming its economy into a <span className="font-semibold text-green-300">circular model</span>,
-              where resources are preserved and growth is decoupled from environmental harm.
+              {t.rich('card.sustainIntro', {
+                g: (chunks) => <span className="font-semibold text-green-300">{chunks}</span>
+              })}
             </p>
             <ul className="list-disc list-inside space-y-1 text-sm text-gray-300">
-              <li>Climate-neutral economy with green innovation</li>
-              <li>Protection of biodiversity, clean air and water</li>
-              <li>Resource efficiency and eco-design standards</li>
-              <li>Social inclusion and just transition for all regions</li>
+              <li>{t('card.sustainList.1')}</li>
+              <li>{t('card.sustainList.2')}</li>
+              <li>{t('card.sustainList.3')}</li>
+              <li>{t('card.sustainList.4')}</li>
             </ul>
             <p className="mt-3 text-sm text-gray-400">
-              By choosing sustainable travel, every itinerary becomes part of a greener, fairer future for Europe.
+              {t.rich('card.sustainOutro', {
+                i: (chunks) => <em>{chunks}</em>
+              })}
             </p>
           </div>
         </div>
+
 
       </main >
     </>

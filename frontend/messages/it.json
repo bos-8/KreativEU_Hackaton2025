@@ -1,70 +1,191 @@
 {
-  "HomePage": {
-    "modulon": "Authentication system base",
-    "projectTitle": "About the project",
-    "projectDescription": "<strong>Modulon</strong> is a scalable and secure platform for user and authorization management, built with <strong>Next.js</strong> (frontend) and <strong>NestJS + Prisma</strong> (backend). The system uses a modern approach to session handling, access and refresh tokens, and is prepared for future containerization, caching, load balancing, and migration to PostgreSQL. The architecture is based on a monorepo aligned with best practices."
-  },
   "Navbar": {
     "home": "Home",
-    "dashboard": "Dashboard",
-    "signup": "Sign up",
-    "login": "Login"
+    "feedback": "Feedback",
+    "planner": "Pianificatore di Viaggio",
+    "demo": "Demo",
+    "architecture": "Architettura",
+    "about": "Informazioni"
+  },
+  "HomePage": {
+    "text1": "Scopri i <bold>tesori nascosti</bold> d’Europa. Dai castelli storici alle coste mozzafiato, creiamo viaggi che ti permettono di vivere cultura, natura e storia — <italic>a modo tuo</italic>.",
+    "text2": "Scegli la tua destinazione e per quanto tempo vuoi esplorare. Il nostro pianificatore con IA costruirà l’<italic>itinerario perfetto</italic>, bilanciando avventura e relax."
   },
   "Footer": {
-    "rights": "All rights reserved."
+    "rights": "Tutti i diritti riservati."
   },
   "Theme": {
     "system": {
-      "label": "System",
-      "title": "System mode"
+      "label": "Sistema",
+      "title": "Modalità di sistema"
     },
     "light": {
-      "label": "Light",
-      "title": "Light mode"
+      "label": "Chiaro",
+      "title": "Modalità chiara"
     },
     "dark": {
-      "label": "Dark",
-      "title": "Dark mode"
+      "label": "Scuro",
+      "title": "Modalità scura"
     }
   },
-  "Login": {
-    "title": "Login",
-    "email": "Email",
-    "password": "Password",
-    "submit": "Login",
-    "errors": {
-      "email": {
-        "required": "Email is required",
-        "invalid": "Invalid email format"
+  "CountryNames": {
+    "IT": "Italia",
+    "PT": "Portogallo",
+    "DE": "Germania",
+    "NL": "Paesi Bassi",
+    "CZ": "Repubblica Ceca",
+    "PL": "Polonia",
+    "AT": "Austria",
+    "SK": "Slovacchia",
+    "RO": "Romania",
+    "BG": "Bulgaria",
+    "TR": "Turchia",
+    "SE": "Svezia"
+  },
+  "Feedback": {
+    "title": "Feedback",
+    "description": "Condividi un feedback rapido sul tuo viaggio. Abbiamo precompilato i dettagli dal tuo piano/invio.",
+    "tripText": "Dettagli del viaggio",
+    "country": "Paese",
+    "city": "Città",
+    "days": "Giorni",
+    "rating": "Nel complesso, com’è andato il tuo viaggio?",
+    "recommend": "Consiglierei questo viaggio",
+    "exampleText": "Esempio compilato: “Il viaggio è stato molto bello…”",
+    "back": "Indietro",
+    "submit": "Invia feedback",
+    "success": "✅ Grazie per il tuo feedback! Aiuterà altri utenti sulla piattaforma.",
+    "placeholder": "Il viaggio è stato molto bello! Ho adorato il cibo e i siti storici. Muoversi a piedi è stato perfetto. L’hotel ha soddisfatto le aspettative.\n\nPunti salienti: Colosseo, Musei Vaticani, Fontana di Trevi.\nSuggerimenti: Prenota le principali attrazioni in anticipo per evitare le code."
+  },
+  "Demo": {
+    "subtitle": "Pianifica la tua fuga in Europa.",
+    "text2": "Configurazione del viaggio",
+    "text3": "Seleziona il <strong>paese</strong> che vuoi visitare e inserisci quanti <strong>giorni</strong> vuoi trascorrere lì. Queste informazioni verranno usate per preparare il tuo itinerario.",
+    "text4": "Pianifica il tuo itinerario",
+    "country": "Paese",
+    "days": "Giorni",
+    "daysHint": "Inserisci un numero intero positivo (max 30).",
+    "submit": "Invia",
+    "reset": "Reimposta",
+    "name": "Nome",
+    "description": "Descrizione",
+    "visit": "Visita (min)",
+    "error": "Risposta del backend",
+    "info1": "Inserisci il numero di giorni.",
+    "info2": "I giorni devono essere un numero intero positivo.",
+    "info3": "Scegli al massimo 30 giorni.",
+    "info4": "Seleziona un paese."
+  },
+  "Architecture": {
+    "title": "⚙️ Architettura del Progetto",
+    "subtitle": "Soluzione Attuale",
+    "clientSide": "Il lato <b>client</b> è costruito con <f>Next.js (React, TypeScript, Tailwind CSS, next-intl)</f>. Qui gli utenti scelgono il <i>paese</i>, il numero di <i>giorni</i> e la lingua. La richiesta viene inviata tramite Axios al backend.",
+    "backendSide": "Il <b>backend</b> è realizzato con <f>FastAPI (Python)</f>. Recupera i <i>Punti di Interesse</i> (POI) da un <f>database SQLite</f>, ognuno con coordinate, durata della visita e un \"punteggio\".",
+    "gaIntro": "Per calcolare l’itinerario, usiamo un <f>Algoritmo Genetico (GA)</f>. Il GA simula l’<i>ottimizzazione evolutiva</i>: vengono generate rotte casuali, valutate e migliorate iterativamente. La fitness si basa su:",
+    "gaPoints": {
+      "maximizeScore": "<b>Massimizzare il punteggio</b> dei POI visitati",
+      "minimizeTravel": "<b>Minimizzare il tempo di viaggio</b> tra le località (circa 10 min/km a piedi)",
+      "balanceLimits": "<b>Bilanciare i limiti giornalieri</b> (circa 8 ore di attività al giorno)"
+    },
+    "gaResult": "Il miglior percorso trovato dopo diverse generazioni viene restituito come risposta JSON, con dettagli come <i>giorno, minuti di viaggio, minuti di visita, tempo cumulativo e traduzioni</i>.",
+    "systemFlow": "Flusso del Sistema",
+    "flow": {
+      "1": "L’<b>utente</b> visita la pagina <i>frontend Next.js</i>.",
+      "2": "Il <b>frontend</b> invia la richiesta (paese, giorni, lingua) al <i>backend FastAPI</i>.",
+      "3": "Il <b>backend</b> recupera i <i>Punti di Interesse</i> (POI) e i metadati dal <i>database SQLite</i>.",
+      "4": "I dati dei POI, comprese le traduzioni, vengono restituiti al <i>modulo di elaborazione FastAPI</i>.",
+      "5": "FastAPI invia i dati e i parametri al <b>GA</b>, che calcola l’<i>itinerario ottimale</i> (massimizzando il punteggio e riducendo i tempi di viaggio).",
+      "6": "I risultati del GA vengono restituiti a <i>FastAPI</i>, che seleziona i contenuti finali nella lingua richiesta.",
+      "7": "La <b>risposta</b> viene inviata al <i>frontend Next.js</i>, dove l’itinerario viene mostrato all’utente."
+    },
+    "aws": "Migrazione al Cloud AWS",
+    "awsIntro": "Per scalare il progetto a più utenti e dataset più grandi, pianifichiamo di migrare nell’ecosistema <b>AWS Cloud</b>:",
+    "awsPoints": {
+      "1": "<b>AWS API Gateway</b> – punto di ingresso sicuro per le richieste dei client",
+      "2": "<b>AWS Lambda</b> – funzioni serverless per i calcoli GA",
+      "3": "<b>Amazon RDS / Aurora</b> – database scalabile al posto di SQLite",
+      "4": "<b>AWS S3</b> – archiviazione di immagini e dati statici",
+      "5": "<b>AWS CloudWatch</b> – monitoraggio, logging e metriche",
+      "6": "<b>AWS SageMaker (futuro)</b> – modelli avanzati di ML/IA per itinerari personalizzati"
+    },
+    "awsOutro": "Questa architettura cloud-native garantisce <i>alta disponibilità, copertura globale e sicurezza di livello enterprise</i>.",
+    "future": "Miglioramenti Futuri",
+    "futureIntro": "Oltre all’infrastruttura, vogliamo migliorare continuamente l’<b>esperienza utente</b> e offrire funzionalità più intelligenti:",
+    "futurePoints": {
+      "1": "<b>Tracciamento attività</b> – imparare dagli itinerari passati per proporre suggerimenti migliori",
+      "2": "<b>Pianificazione basata sulle preferenze</b> – consentire di impostare ritmo, budget o temi (storia, cibo, natura)",
+      "3": "<b>Viaggi multi-paese</b> – supportare itinerari in più paesi UE in un unico piano",
+      "4": "<b>Collaborazione</b> – condividere e co-modificare i piani con amici o familiari",
+      "5": "<b>Disponibilità offline</b> – esportare itinerari da usare senza internet",
+      "6": "<b>Gamification</b> – premiare gli utenti che esplorano nuovi luoghi o scelte sostenibili"
+    },
+    "qa": "Domande Frequenti",
+    "qaItems": {
+      "1": {
+        "q": "Perché usare un Algoritmo Genetico invece di Dijkstra o A*?",
+        "a": "Gli algoritmi tradizionali sono adatti ai percorsi più brevi, ma non gestiscono bene l’ottimizzazione multi-obiettivo (punteggio + tempo + struttura giornaliera). Il GA è flessibile e fornisce soluzioni quasi ottimali rapidamente."
       },
-      "password": {
-        "min": "Password must be at least 6 characters"
+      "2": {
+        "q": "Perché SQLite per ora?",
+        "a": "SQLite è leggero, portatile e perfetto per i prototipi. Con la crescita del progetto, passeremo a un database scalabile come <b>PostgreSQL su AWS Aurora</b>."
+      },
+      "3": {
+        "q": "Come evolverà il sistema?",
+        "a": "Immaginiamo itinerari personalizzati con <i>machine learning</i>, integrazione in tempo reale con API di trasporto e pianificazione collaborativa multiutente, tutto su infrastruttura cloud-native."
+      },
+      "4": {
+        "q": "Posso pianificare viaggi in più paesi?",
+        "a": "Sì — le versioni future supporteranno <b>itinerari multi-paese</b>, ottimizzati per attraversamenti, temi culturali e trasporti efficienti."
+      },
+      "5": {
+        "q": "Il pianificatore funzionerà offline?",
+        "a": "Prevediamo di introdurre una <b>modalità offline</b> in cui gli itinerari possono essere salvati sul dispositivo e consultati senza internet."
+      },
+      "6": {
+        "q": "Come funzionerà la personalizzazione?",
+        "a": "Analizzando <i>preferenze e scelte passate</i>, il sistema proporrà itinerari in linea con il tuo stile di viaggio — gastronomia, storia, natura o vita notturna."
+      },
+      "7": {
+        "q": "La sostenibilità è considerata?",
+        "a": "Assolutamente. Il pianificatore incoraggia <b>opzioni ecologiche</b> come camminare, andare in bici o in treno e mette in evidenza destinazioni sostenibili e locali."
+      },
+      "8": {
+        "q": "Come viene gestita la privacy dei dati?",
+        "a": "Seguiamo pratiche <b>conformi al GDPR</b>. I dati non vengono mai venduti e sono archiviati in modo sicuro. Nella futura architettura cloud, aggiungeremo <i>crittografia end-to-end</i> e cancellazione dei dati controllata dall’utente."
       }
     }
   },
-  "Signup": {
-    "title": "Sign up",
-    "email": "Email",
-    "password": "Password",
-    "confirmPassword": "Confirm password",
-    "submit": "Create account",
-    "reset": "Reset",
-    "errors": {
-      "email": {
-        "required": "Email is required",
-        "invalid": "Invalid email format"
+  "About": {
+    "team": "Team: 3U-nity Vision",
+    "visionText": "<y>3U</y> significa <b>Free You</b>, simbolo di libertà e individualità. Riflette anche <bl>EU</bl>, l’<b>Unione Europea</b>, rappresentando unità e cooperazione. <in>Vision</in> indica un futuro sostenibile e condiviso per l’Europa.",
+    "lead": "Responsabile del Progetto",
+    "strategy": "Strategia & Coordinamento",
+    "consultant": "Consulente Commerciale",
+    "aiWebDev": "IA & Sviluppo Web",
+    "architect": "Architetto",
+    "nextJsReact": "NEXT.js, TypeScript, Tailwind CSS, FastAPI",
+    "card": {
+      "title": "KreativEU",
+      "intro": "Celebra la <y>creatività</y> e la diversità culturale dell’Europa. Dall’arte e design alla tecnologia e innovazione sostenibile, i cittadini sono incoraggiati a esplorare, condividere e co-creare un futuro migliore — <i>insieme</i>.",
+      "pitch": "Scegli la tua ispirazione: patrimonio, innovazione o sostenibilità. Il nostro pianificatore con IA creerà il <i>viaggio culturale perfetto</i>, unendo tradizione e creatività europea moderna.",
+      "valuesTitle": "🇪🇺 Valori Europei",
+      "valuesIntro": "L’UE si fonda su sei valori fondamentali che costituiscono la base della nostra società:",
+      "valuesList": {
+        "1": "Rispetto della dignità umana",
+        "2": "Libertà & Democrazia",
+        "3": "Uguaglianza & Stato di diritto",
+        "4": "Rispetto dei diritti umani, incluse le minoranze"
       },
-      "password": {
-        "min": "Password must be at least 6 characters"
+      "valuesOutro": "Questi valori sono comuni a tutti i paesi dell’UE e garantiscono una società basata su pluralismo, tolleranza, giustizia, solidarietà e non discriminazione. Sono sanciti nell’<b>Articolo 2 del Trattato sull’Unione Europea</b>.",
+      "sustainTitle": "🌱 Sostenibilità",
+      "sustainIntro": "La Commissione Europea sta sviluppando un approccio integrato in <g>industria, ambiente, clima ed energia</g> per promuovere crescita sostenibile, occupazione e innovazione.",
+      "sustainList": {
+        "1": "Transizione verso un’economia circolare e a impatto climatico zero",
+        "2": "Protezione della biodiversità, aria e acqua pulite",
+        "3": "Prodotti efficienti dal punto di vista energetico ed eco-progettati",
+        "4": "Inclusione sociale e transizione equa per tutte le regioni"
       },
-      "confirmPassword": {
-        "required": "Confirm password is required",
-        "match": "Passwords must match"
-      }
+      "sustainOutro": "Trasformando l’economia europea in un <i>modello circolare</i>, il valore di prodotti e materiali viene preservato, portando benefici economici e sociali significativi e riducendo l’impatto ambientale."
     }
-  },
-  "DashboardPage": {
-    "title": "User Dashboard",
-    "description": "Welcome to your dashboard. In the future, you’ll find shortcuts, statistics, and account management here."
   }
 }

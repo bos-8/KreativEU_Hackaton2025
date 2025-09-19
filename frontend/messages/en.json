@@ -157,6 +157,35 @@
   },
   "About": {
     "team": "Team: 3U-nity Vision",
-    "visionText": "<y>3U</y> stands for <b>Free You</b>, symbolizing freedom and individuality. It also reflects <bl>EU</bl>, the <b>European Union</b>, representing unity and cooperation. <in>Vision</in> points toward a shared, sustainable future for Europe."
+    "visionText": "<y>3U</y> stands for <b>Free You</b>, symbolizing freedom and individuality. It also reflects <bl>EU</bl>, the <b>European Union</b>, representing unity and cooperation. <in>Vision</in> points toward a shared, sustainable future for Europe.",
+    "lead": "Project Lead",
+    "strategy": "Strategy & Coordination",
+    "consultant": "Selling Consultant",
+    "aiWebDev": "AI & Web Development",
+    "architect": "Architect",
+    "nextJsReact": "NEXT.js, TypeScript, Tailwind CSS, FastAPI",
+    "card": {
+      "title": "KreativEU",
+      "intro": "Celebrate Europe’s <y>creativity</y> and cultural diversity. From art and design to technology and sustainable innovation, citizens are empowered to explore, share, and co-create a brighter future — <i>together</i>.",
+      "pitch": "Choose your inspiration: heritage, innovation, or sustainability. Our AI-powered planner will build the <i>perfect cultural journey</i>, blending tradition with modern European creativity.",
+      "valuesTitle": "🇪🇺 European Values",
+      "valuesIntro": "The EU is founded on six core values that form the basis of our society:",
+      "valuesList": {
+        "1": "Respect for human dignity",
+        "2": "Freedom & Democracy",
+        "3": "Equality & Rule of law",
+        "4": "Respect for human rights, including those of minorities"
+      },
+      "valuesOutro": "These values are common to all EU countries and ensure a society built on pluralism, tolerance, justice, solidarity and non-discrimination. They are enshrined in <b>Article 2 of the Treaty on European Union</b>.",
+      "sustainTitle": "🌱 Sustainability",
+      "sustainIntro": "The European Commission is shaping an integrated approach across <g>industry, environment, climate and energy policy</g> to foster sustainable growth, job creation and innovation.",
+      "sustainList": {
+        "1": "Transition to a climate-neutral, circular economy",
+        "2": "Protection of biodiversity, clean air and water",
+        "3": "Energy-efficient and eco-designed products",
+        "4": "Social inclusion and a just transition for all regions"
+      },
+      "sustainOutro": "By transforming Europe’s economy into a <i>circular model</i>, the value of products and materials is preserved, bringing major economic and social benefits while reducing environmental impact."
+    }
   }
 }

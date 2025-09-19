@@ -1,0 +1,191 @@
+{
+  "Navbar": {
+    "home": "Ana Sayfa",
+    "feedback": "Geri Bildirim",
+    "planner": "Gezi Planlayıcı",
+    "demo": "Demo",
+    "architecture": "Mimari",
+    "about": "Hakkında"
+  },
+  "HomePage": {
+    "text1": "Avrupa’nın <bold>gizli hazinelerini</bold> keşfet. Tarihi kalelerden nefes kesen kıyılara kadar – kültürü, doğayı ve tarihi deneyimlemeni sağlayan yolculuklar oluşturuyoruz — <italic>senin tarzında</italic>.",
+    "text2": "Hedefini ve ne kadar süreyle keşfetmek istediğini seç. Yapay zeka destekli planlayıcımız <italic>mükemmel bir gezi planı</italic> oluşturacak; macera ve dinlenmeyi dengeleyecek."
+  },
+  "Footer": {
+    "rights": "Tüm hakları saklıdır."
+  },
+  "Theme": {
+    "system": {
+      "label": "Sistem",
+      "title": "Sistem modu"
+    },
+    "light": {
+      "label": "Aydınlık",
+      "title": "Aydınlık mod"
+    },
+    "dark": {
+      "label": "Karanlık",
+      "title": "Karanlık mod"
+    }
+  },
+  "CountryNames": {
+    "IT": "İtalya",
+    "PT": "Portekiz",
+    "DE": "Almanya",
+    "NL": "Hollanda",
+    "CZ": "Çekya",
+    "PL": "Polonya",
+    "AT": "Avusturya",
+    "SK": "Slovakya",
+    "RO": "Romanya",
+    "BG": "Bulgaristan",
+    "TR": "Türkiye",
+    "SE": "İsveç"
+  },
+  "Feedback": {
+    "title": "Geri Bildirim",
+    "description": "Gezin hakkında hızlı geri bildirim paylaş. Planından/doldurduğundan detayları biz ekledik.",
+    "tripText": "Gezi detayları",
+    "country": "Ülke",
+    "city": "Şehir",
+    "days": "Gün",
+    "rating": "Genel olarak geziniz nasıldı?",
+    "recommend": "Bu geziyi tavsiye ederim",
+    "exampleText": "Örnek: “Gezi çok güzeldi…”",
+    "back": "Geri",
+    "submit": "Geri bildirim gönder",
+    "success": "✅ Geri bildirimin için teşekkürler! Bu, platformdaki diğer kullanıcılara yardımcı olacak.",
+    "placeholder": "Gezi çok güzeldi! Yemekleri ve tarihi yerleri çok beğendim. Yürüyerek dolaşmak harikaydı. Otel beklentilerimi karşıladı.\n\nÖne çıkanlar: Kolezyum, Vatikan Müzeleri, Trevi Çeşmesi.\nÖneriler: Kuyruklardan kaçınmak için büyük cazibe merkezlerini önceden ayırtın."
+  },
+  "Demo": {
+    "subtitle": "Avrupa’da tatilini planla.",
+    "text2": "Gezi ayarları",
+    "text3": "Ziyaret etmek istediğin <strong>ülkeyi</strong> seç ve orada kaç <strong>gün</strong> geçirmek istediğini gir. Bu bilgiler, gezi planını hazırlamak için kullanılacaktır.",
+    "text4": "Gezi planını oluştur",
+    "country": "Ülke",
+    "days": "Gün",
+    "daysHint": "Pozitif bir tam sayı girin (en fazla 30).",
+    "submit": "Gönder",
+    "reset": "Sıfırla",
+    "name": "Ad",
+    "description": "Açıklama",
+    "visit": "Ziyaret (dakika)",
+    "error": "Backend yanıtı",
+    "info1": "Lütfen gün sayısını girin.",
+    "info2": "Gün sayısı pozitif bir tam sayı olmalıdır.",
+    "info3": "En fazla 30 gün seçebilirsiniz.",
+    "info4": "Lütfen bir ülke seçin."
+  },
+  "Architecture": {
+    "title": "⚙️ Proje Mimarisi",
+    "subtitle": "Mevcut Çözüm",
+    "clientSide": "<b>İstemci</b> tarafı <f>Next.js (React, TypeScript, Tailwind CSS, next-intl)</f> ile oluşturuldu. Burada kullanıcılar <i>ülke</i>, <i>gün sayısı</i> ve dili seçer. İstek Axios ile backend’e gönderilir.",
+    "backendSide": "<b>Backend</b> <f>FastAPI (Python)</f> ile çalışır. <i>Gezilecek Noktalar</i> (POI) bir <f>SQLite veritabanından</f> alınır, her biri koordinat, ziyaret süresi ve “puan” içerir.",
+    "gaIntro": "Gezi planını hesaplamak için <f>Genetik Algoritma (GA)</f> kullanıyoruz. GA <i>evrimsel optimizasyonu</i> simüle eder: rastgele rotalar üretir, değerlendirir ve aşamalı olarak iyileştirir. Değerlendirme şunlara dayanır:",
+    "gaPoints": {
+      "maximizeScore": "Ziyaret edilen POI’lerin <b>puanını maksimize etmek</b>",
+      "minimizeTravel": "Konumlar arasındaki <b>seyahat süresini minimize etmek</b> (yaklaşık 10 dk/km yaya)",
+      "balanceLimits": "<b>Günlük sınırları dengelemek</b> (günde yaklaşık 8 saat aktivite)"
+    },
+    "gaResult": "Birkaç nesil sonrası bulunan en iyi rota JSON olarak döndürülür; <i>gün, yolculuk dakikaları, ziyaret dakikaları, toplam süre ve çeviriler</i> dahil.",
+    "systemFlow": "Sistem Akışı",
+    "flow": {
+      "1": "<b>Kullanıcı</b> <i>Next.js frontend</i> sayfasını ziyaret eder.",
+      "2": "<b>Frontend</b> gezi isteğini (ülke, gün, dil) <i>FastAPI backend</i>’ine gönderir.",
+      "3": "<b>Backend</b> <i>POI</i> ve meta verileri <i>SQLite veritabanından</i> alır.",
+      "4": "Alınan POI verileri çevirilerle birlikte <i>FastAPI işlem modülüne</i> döndürülür.",
+      "5": "FastAPI, POI verilerini ve parametreleri <b>GA</b>’ya gönderir, GA <i>en uygun gezi planını</i> hesaplar.",
+      "6": "GA sonuçları <i>FastAPI</i>’ye döner, burada istenilen dilde son içerik seçilir.",
+      "7": "<b>Yanıt</b> <i>Next.js frontend</i>’ine gönderilir ve kullanıcıya gösterilir."
+    },
+    "aws": "AWS Bulut Geçişi",
+    "awsIntro": "Daha fazla kullanıcı ve daha büyük veri setleri için projeyi ölçeklendirmek amacıyla <b>AWS Bulut</b> ekosistemine geçmeyi planlıyoruz:",
+    "awsPoints": {
+      "1": "<b>AWS API Gateway</b> – istemci istekleri için güvenli giriş noktası",
+      "2": "<b>AWS Lambda</b> – GA hesaplamalarını yapan serverless fonksiyonlar",
+      "3": "<b>Amazon RDS / Aurora</b> – SQLite yerine ölçeklenebilir veritabanı",
+      "4": "<b>AWS S3</b> – görseller ve statik veriler için depolama",
+      "5": "<b>AWS CloudWatch</b> – izleme, loglama ve performans metrikleri",
+      "6": "<b>AWS SageMaker (gelecek)</b> – kişiselleştirilmiş geziler için gelişmiş ML/AI modelleri"
+    },
+    "awsOutro": "Bu bulut-tabanlı mimari <i>yüksek erişilebilirlik, küresel erişim ve kurumsal düzeyde güvenlik</i> sağlar.",
+    "future": "Gelecek İyileştirmeler",
+    "futureIntro": "Altyapının ötesinde, sürekli olarak <b>kullanıcı deneyimini</b> geliştirmeyi ve daha akıllı seyahat planlama özellikleri sunmayı hedefliyoruz:",
+    "futurePoints": {
+      "1": "<b>Kullanıcı etkinlik takibi</b> – geçmiş gezilerden öğrenerek daha iyi öneriler sunmak",
+      "2": "<b>Tercih bazlı planlama</b> – tempo, bütçe veya temalar (tarih, yemek, doğa)",
+      "3": "<b>Çok ülkelik geziler</b> – tek bir planda birkaç AB ülkesini desteklemek",
+      "4": "<b>Ortak özellikler</b> – planları arkadaşlar veya aile ile paylaşma ve birlikte düzenleme",
+      "5": "<b>Çevrimdışı kullanım</b> – internet olmadan kullanılmak üzere planları dışa aktarma",
+      "6": "<b>Oyunlaştırma</b> – yeni yerler keşfetme veya sürdürülebilir seçimler için ödüller"
+    },
+    "qa": "SSS",
+    "qaItems": {
+      "1": {
+        "q": "Neden Dijkstra veya A* yerine Genetik Algoritma?",
+        "a": "Klasik algoritmalar en kısa yollar için iyidir ancak çok hedefli optimizasyonda (puan + zaman + günlük yapı) zorlanır. GA esneklik sağlar ve hızlıca neredeyse optimal çözümler sunar."
+      },
+      "2": {
+        "q": "Neden şu anda SQLite?",
+        "a": "SQLite hafif, taşınabilir ve prototipler için mükemmel. Proje büyüdükçe <b>AWS Aurora’da PostgreSQL</b> gibi ölçeklenebilir bir veritabanına geçeceğiz."
+      },
+      "3": {
+        "q": "Sistem nasıl gelişecek?",
+        "a": "Makine öğrenimi ile kişiselleştirilmiş geziler, ulaşım API’leri ile canlı entegrasyon ve çok kullanıcılı ortak planlama öngörüyoruz."
+      },
+      "4": {
+        "q": "Birden fazla ülke için plan yapabilir miyim?",
+        "a": "Evet — gelecekteki sürümler <b>çok ülkeli geziler</b> destekleyecek, sınır geçişleri, kültürel temalar ve ulaşım verimliliği optimize edilecek."
+      },
+      "5": {
+        "q": "Planlayıcı çevrimdışı çalışacak mı?",
+        "a": "Evet, <b>çevrimdışı mod</b> sunmayı planlıyoruz; planlar cihazınıza kaydedilecek ve internet olmadan erişilebilecek."
+      },
+      "6": {
+        "q": "Kişiselleştirme nasıl çalışacak?",
+        "a": "Sistem <i>kullanıcı tercihlerini ve geçmiş seçimlerini</i> analiz ederek senin tarzına uygun geziler önerecek — ister yemek, ister tarih, ister doğa veya gece hayatı."
+      },
+      "7": {
+        "q": "Planlama sürecinde sürdürülebilirlik dikkate alınıyor mu?",
+        "a": "Kesinlikle. Planlayıcımız yürüyüş, bisiklet veya tren gibi <b>çevre dostu seyahat seçeneklerini</b> teşvik eder ve sürdürülebilirliği vurgulayan destinasyonları öne çıkarır."
+      },
+      "8": {
+        "q": "Veri gizliliği nasıl korunuyor?",
+        "a": "<b>GDPR</b> uyumlu çalışıyoruz. Kullanıcı verileri asla satılmaz ve güvenli şekilde saklanır. Gelecekteki bulut yapısında <i>uçtan uca şifreleme</i> ve kullanıcı kontrollü veri silme ekleyeceğiz."
+      }
+    }
+  },
+  "About": {
+    "team": "Takım: 3U-nity Vision",
+    "visionText": "<y>3U</y> <b>Free You</b> anlamına gelir, özgürlük ve bireyselliği simgeler. Aynı zamanda <bl>EU</bl>, <b>Avrupa Birliği</b>’ni de yansıtır, birlik ve işbirliğini temsil eder. <in>Vision</in> ise Avrupa için ortak, sürdürülebilir bir geleceğe işaret eder.",
+    "lead": "Proje Lideri",
+    "strategy": "Strateji & Koordinasyon",
+    "consultant": "Satış Danışmanı",
+    "aiWebDev": "AI & Web Geliştirme",
+    "architect": "Mimar",
+    "nextJsReact": "NEXT.js, TypeScript, Tailwind CSS, FastAPI",
+    "card": {
+      "title": "KreativEU",
+      "intro": "Avrupa’nın <y>yaratıcılığını</y> ve kültürel çeşitliliğini kutla. Sanat ve tasarımdan teknolojiye ve sürdürülebilir inovasyona kadar vatandaşlar keşfetmeye, paylaşmaya ve daha parlak bir gelecek yaratmaya teşvik ediliyor — <i>birlikte</i>.",
+      "pitch": "İlhamını seç: miras, inovasyon veya sürdürülebilirlik. AI destekli planlayıcımız, geleneği modern Avrupa yaratıcılığıyla harmanlayan <i>mükemmel bir kültürel yolculuk</i> oluşturacak.",
+      "valuesTitle": "🇪🇺 Avrupa Değerleri",
+      "valuesIntro": "AB, toplumumuzun temelini oluşturan altı temel değere dayanmaktadır:",
+      "valuesList": {
+        "1": "İnsan onuruna saygı",
+        "2": "Özgürlük & Demokrasi",
+        "3": "Eşitlik & Hukukun üstünlüğü",
+        "4": "Azınlıklar dahil insan haklarına saygı"
+      },
+      "valuesOutro": "Bu değerler tüm AB ülkelerine ortaktır ve çoğulculuk, hoşgörü, adalet, dayanışma ve ayrımcılığın olmadığı bir toplum sağlar. <b>Avrupa Birliği Antlaşması’nın 2. Maddesi</b>’nde yer almaktadır.",
+      "sustainTitle": "🌱 Sürdürülebilirlik",
+      "sustainIntro": "Avrupa Komisyonu, <g>sanayi, çevre, iklim ve enerji</g> politikalarında entegre bir yaklaşım geliştirerek sürdürülebilir büyümeyi, istihdamı ve inovasyonu destekliyor.",
+      "sustainList": {
+        "1": "İklim-nötr, döngüsel ekonomiye geçiş",
+        "2": "Biyoçeşitliliğin, temiz hava ve suyun korunması",
+        "3": "Enerji verimli ve çevre dostu tasarlanmış ürünler",
+        "4": "Tüm bölgeler için sosyal katılım ve adil geçiş"
+      },
+      "sustainOutro": "Avrupa ekonomisini bir <i>döngüsel modele</i> dönüştürerek ürün ve materyallerin değeri korunur, bu da büyük ekonomik ve sosyal faydalar getirirken çevresel etkiyi azaltır."
+    }
+  }
+}

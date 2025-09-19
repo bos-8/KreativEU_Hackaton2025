@@ -1,70 +1,191 @@
 {
-  "HomePage": {
-    "modulon": "Authentication system base",
-    "projectTitle": "About the project",
-    "projectDescription": "<strong>Modulon</strong> is a scalable and secure platform for user and authorization management, built with <strong>Next.js</strong> (frontend) and <strong>NestJS + Prisma</strong> (backend). The system uses a modern approach to session handling, access and refresh tokens, and is prepared for future containerization, caching, load balancing, and migration to PostgreSQL. The architecture is based on a monorepo aligned with best practices."
-  },
   "Navbar": {
-    "home": "Home",
-    "dashboard": "Dashboard",
-    "signup": "Sign up",
-    "login": "Login"
+    "home": "Domů",
+    "feedback": "Zpětná vazba",
+    "planner": "Plánovač cest",
+    "demo": "Demo",
+    "architecture": "Architektura",
+    "about": "O projektu"
+  },
+  "HomePage": {
+    "text1": "Objev <bold>skryté poklady</bold> Evropy. Od historických hradů po úchvatné pobřeží – tvoříme cesty, které ti umožní zažít kulturu, přírodu a historii — <italic>po tvém</italic>.",
+    "text2": "Vyber si destinaci a kolik času chceš věnovat objevování. Náš plánovač s umělou inteligencí vytvoří <italic>dokonalý itinerář</italic>, vyvažující dobrodružství a odpočinek."
   },
   "Footer": {
-    "rights": "All rights reserved."
+    "rights": "Všechna práva vyhrazena."
   },
   "Theme": {
     "system": {
-      "label": "System",
-      "title": "System mode"
+      "label": "Systém",
+      "title": "Systémový režim"
     },
     "light": {
-      "label": "Light",
-      "title": "Light mode"
+      "label": "Světlý",
+      "title": "Světlý režim"
     },
     "dark": {
-      "label": "Dark",
-      "title": "Dark mode"
+      "label": "Tmavý",
+      "title": "Tmavý režim"
     }
   },
-  "Login": {
-    "title": "Login",
-    "email": "Email",
-    "password": "Password",
-    "submit": "Login",
-    "errors": {
-      "email": {
-        "required": "Email is required",
-        "invalid": "Invalid email format"
+  "CountryNames": {
+    "IT": "Itálie",
+    "PT": "Portugalsko",
+    "DE": "Německo",
+    "NL": "Nizozemsko",
+    "CZ": "Česká republika",
+    "PL": "Polsko",
+    "AT": "Rakousko",
+    "SK": "Slovensko",
+    "RO": "Rumunsko",
+    "BG": "Bulharsko",
+    "TR": "Turecko",
+    "SE": "Švédsko"
+  },
+  "Feedback": {
+    "title": "Zpětná vazba",
+    "description": "Poděl se o rychlou zpětnou vazbu o své cestě. Podrobnosti jsme předvyplnili z tvého plánu/odeslání.",
+    "tripText": "Detaily cesty",
+    "country": "Země",
+    "city": "Město",
+    "days": "Dny",
+    "rating": "Celkově, jaká byla tvá cesta?",
+    "recommend": "Doporučil(a) bych tuto cestu",
+    "exampleText": "Příklad: “Cesta byla velmi dobrá…”",
+    "back": "Zpět",
+    "submit": "Odeslat zpětnou vazbu",
+    "success": "✅ Děkujeme za tvou zpětnou vazbu! Pomůže ostatním uživatelům na platformě.",
+    "placeholder": "Cesta byla velmi dobrá! Miloval jsem jídlo a historické památky. Pohybovat se pěšky bylo skvělé. Hotel splnil očekávání.\n\nHlavní atrakce: Koloseum, Vatikánská muzea, Fontána di Trevi.\nDoporučení: Rezervujte hlavní atrakce předem, abyste se vyhnuli frontám."
+  },
+  "Demo": {
+    "subtitle": "Naplánuj si svůj výlet po Evropě.",
+    "text2": "Nastavení cesty",
+    "text3": "Vyber <strong>zemi</strong>, kterou chceš navštívit, a zadej, kolik <strong>dnů</strong> tam chceš strávit. Tyto informace budou použity k přípravě tvého itineráře.",
+    "text4": "Naplánuj svůj itinerář",
+    "country": "Země",
+    "days": "Dny",
+    "daysHint": "Zadej kladné celé číslo (max. 30).",
+    "submit": "Odeslat",
+    "reset": "Resetovat",
+    "name": "Název",
+    "description": "Popis",
+    "visit": "Návštěva (min)",
+    "error": "Odpověď backendu",
+    "info1": "Zadej prosím počet dnů.",
+    "info2": "Počet dnů musí být kladné celé číslo.",
+    "info3": "Vyber maximálně 30 dnů.",
+    "info4": "Vyber prosím zemi."
+  },
+  "Architecture": {
+    "title": "⚙️ Architektura projektu",
+    "subtitle": "Současné řešení",
+    "clientSide": "Část <b>klienta</b> je postavena na <f>Next.js (React, TypeScript, Tailwind CSS, next-intl)</f>. Uživatel zde vybírá <i>zemi</i>, počet <i>dnů</i> a jazyk. Požadavek je odeslán přes Axios na backend API.",
+    "backendSide": "<b>Backend</b> běží na <f>FastAPI (Python)</f>. Načítá <i>body zájmu</i> (POI) z <f>databáze SQLite</f>, každý s koordináty, dobou návštěvy a „skóre“.",
+    "gaIntro": "Pro výpočet itineráře používáme <f>Genetický algoritmus (GA)</f>. GA simuluje <i>evoluční optimalizaci</i>: generuje náhodné trasy, hodnotí je a postupně vylepšuje. Fitness je založena na:",
+    "gaPoints": {
+      "maximizeScore": "<b>Maximalizace skóre</b> navštívených POI",
+      "minimizeTravel": "<b>Minimalizace cestovního času</b> mezi místy (cca 10 min/km pěšky)",
+      "balanceLimits": "<b>Vyvážení denních limitů</b> (cca 8 hodin aktivity denně)"
+    },
+    "gaResult": "Nejlepší nalezená trasa po několika generacích je vrácena jako JSON s detaily: <i>den, čas cesty, čas návštěvy, kumulativní čas a překlady</i>.",
+    "systemFlow": "Tok systému",
+    "flow": {
+      "1": "<b>Uživatel</b> navštíví stránku <i>frontend v Next.js</i>.",
+      "2": "<b>Frontend</b> odešle požadavek (země, dny, jazyk) do <i>backendu FastAPI</i>.",
+      "3": "<b>Backend</b> načte <i>POI</i> a metadata z <i>databáze SQLite</i>.",
+      "4": "Načtená data POI včetně překladů jsou vrácena do <i>modulu FastAPI</i>.",
+      "5": "FastAPI pošle data a parametry do <b>GA</b>, který vypočítá <i>optimální itinerář</i>.",
+      "6": "Výsledky GA se vrací do <i>FastAPI</i>, které vybere finální obsah v požadovaném jazyce.",
+      "7": "<b>Odpověď</b> se pošle zpět do <i>frontend v Next.js</i>, kde se zobrazí itinerář."
+    },
+    "aws": "Migrace do AWS Cloudu",
+    "awsIntro": "Abychom projekt rozšířili pro více uživatelů a větší datové sady, plánujeme migraci do ekosystému <b>AWS Cloud</b>:",
+    "awsPoints": {
+      "1": "<b>AWS API Gateway</b> – bezpečný vstupní bod pro požadavky",
+      "2": "<b>AWS Lambda</b> – serverless funkce provádějící výpočty GA",
+      "3": "<b>Amazon RDS / Aurora</b> – škálovatelná databáze místo SQLite",
+      "4": "<b>AWS S3</b> – úložiště obrázků a statických dat",
+      "5": "<b>AWS CloudWatch</b> – monitoring, logování a metriky",
+      "6": "<b>AWS SageMaker (budoucnost)</b> – pokročilé ML/AI modely pro personalizované itineráře"
+    },
+    "awsOutro": "Tato cloud-native architektura zajišťuje <i>vysokou dostupnost, globální dosah a podnikové zabezpečení</i>.",
+    "future": "Budoucí zlepšení",
+    "futureIntro": "Mimo infrastrukturu chceme průběžně zlepšovat <b>uživatelský zážitek</b> a přidávat chytré funkce plánování:",
+    "futurePoints": {
+      "1": "<b>Sledování aktivit</b> – učit se z minulých itinerářů pro lepší návrhy",
+      "2": "<b>Plánování podle preferencí</b> – tempo, rozpočet, témata (historie, jídlo, příroda)",
+      "3": "<b>Cesty více zeměmi</b> – podpora itinerářů přes několik zemí EU",
+      "4": "<b>Spolupráce</b> – sdílení a spolueditace plánů s přáteli",
+      "5": "<b>Dostupnost offline</b> – export itinerářů bez nutnosti internetu",
+      "6": "<b>Gamifikace</b> – odměny za objevování nových míst nebo ekologické volby"
+    },
+    "qa": "Časté dotazy",
+    "qaItems": {
+      "1": {
+        "q": "Proč použít Genetický algoritmus místo Dijkstra nebo A*?",
+        "a": "Klasické algoritmy dobře řeší nejkratší cesty, ale obtížně zvládají více cílů najednou (skóre + čas + struktura dne). GA je flexibilní a rychle poskytuje téměř optimální řešení."
       },
-      "password": {
-        "min": "Password must be at least 6 characters"
+      "2": {
+        "q": "Proč SQLite nyní?",
+        "a": "SQLite je lehká a přenosná databáze, ideální pro prototypy. Jakmile projekt poroste, přejdeme na škálovatelnou databázi jako <b>PostgreSQL na AWS Aurora</b>."
+      },
+      "3": {
+        "q": "Jak se bude systém vyvíjet?",
+        "a": "Plánujeme personalizované itineráře pomocí <i>strojového učení</i>, integraci s API dopravy a společné plánování více uživatelů v cloudu."
+      },
+      "4": {
+        "q": "Mohu plánovat cesty přes více zemí?",
+        "a": "Ano — budoucí verze budou podporovat <b>vícezemní itineráře</b>, optimalizované pro hranice, témata a efektivní dopravu."
+      },
+      "5": {
+        "q": "Bude plánovač fungovat offline?",
+        "a": "Ano, plánujeme <b>offline režim</b>, kde budou itineráře uloženy v zařízení a dostupné bez internetu."
+      },
+      "6": {
+        "q": "Jak bude fungovat personalizace?",
+        "a": "Na základě <i>preferencí a minulých voleb</i> systém navrhne itineráře podle tvého stylu (jídlo, historie, příroda, noční život)."
+      },
+      "7": {
+        "q": "Je brána v úvahu udržitelnost?",
+        "a": "Samozřejmě. Plánovač podporuje <b>ekologické možnosti cestování</b> jako chůze, kolo nebo vlak a zdůrazňuje destinace podporující udržitelnost."
+      },
+      "8": {
+        "q": "Jak je chráněno soukromí dat?",
+        "a": "Dodržujeme <b>GDPR</b>. Data uživatelů nejsou nikdy prodávána a jsou bezpečně uložena. V cloudu přidáme <i>end-to-end šifrování</i> a možnost mazání dat uživatelem."
       }
     }
   },
-  "Signup": {
-    "title": "Sign up",
-    "email": "Email",
-    "password": "Password",
-    "confirmPassword": "Confirm password",
-    "submit": "Create account",
-    "reset": "Reset",
-    "errors": {
-      "email": {
-        "required": "Email is required",
-        "invalid": "Invalid email format"
+  "About": {
+    "team": "Tým: 3U-nity Vision",
+    "visionText": "<y>3U</y> znamená <b>Free You</b>, symbol svobody a individuality. Zároveň odkazuje na <bl>EU</bl>, <b>Evropskou unii</b>, představující jednotu a spolupráci. <in>Vision</in> ukazuje na společnou a udržitelnou budoucnost Evropy.",
+    "lead": "Vedoucí projektu",
+    "strategy": "Strategie & Koordinace",
+    "consultant": "Obchodní konzultant",
+    "aiWebDev": "AI & Webový vývoj",
+    "architect": "Architekt",
+    "nextJsReact": "NEXT.js, TypeScript, Tailwind CSS, FastAPI",
+    "card": {
+      "title": "KreativEU",
+      "intro": "Oslavuj <y>kreativitu</y> a kulturní rozmanitost Evropy. Od umění a designu po technologie a udržitelné inovace – občané jsou motivováni k objevování, sdílení a společné tvorbě lepší budoucnosti — <i>společně</i>.",
+      "pitch": "Vyber si inspiraci: dědictví, inovace nebo udržitelnost. Náš AI plánovač vytvoří <i>dokonalou kulturní cestu</i>, kombinující tradici s moderní evropskou kreativitou.",
+      "valuesTitle": "🇪🇺 Evropské hodnoty",
+      "valuesIntro": "EU je založena na šesti základních hodnotách, které tvoří základ naší společnosti:",
+      "valuesList": {
+        "1": "Respekt k lidské důstojnosti",
+        "2": "Svoboda & Demokracie",
+        "3": "Rovnost & Právní stát",
+        "4": "Respekt k lidským právům, včetně práv menšin"
       },
-      "password": {
-        "min": "Password must be at least 6 characters"
+      "valuesOutro": "Tyto hodnoty jsou společné pro všechny země EU a zajišťují společnost založenou na pluralismu, toleranci, spravedlnosti, solidaritě a nediskriminaci. Jsou zakotveny v <b>Článku 2 Smlouvy o EU</b>.",
+      "sustainTitle": "🌱 Udržitelnost",
+      "sustainIntro": "Evropská komise vytváří integrovaný přístup v <g>průmyslu, životním prostředí, klimatu a energetice</g> pro podporu udržitelného růstu, zaměstnanosti a inovací.",
+      "sustainList": {
+        "1": "Přechod na klimaticky neutrální, cirkulární ekonomiku",
+        "2": "Ochrana biodiverzity, čistého ovzduší a vody",
+        "3": "Energeticky účinné a ekologicky navržené produkty",
+        "4": "Sociální inkluze a spravedlivá transformace pro všechny regiony"
       },
-      "confirmPassword": {
-        "required": "Confirm password is required",
-        "match": "Passwords must match"
-      }
+      "sustainOutro": "Přeměnou evropské ekonomiky na <i>cirkulární model</i> se zachová hodnota výrobků a materiálů, což přinese ekonomické a sociální přínosy a zároveň sníží dopad na životní prostředí."
     }
-  },
-  "DashboardPage": {
-    "title": "User Dashboard",
-    "description": "Welcome to your dashboard. In the future, you’ll find shortcuts, statistics, and account management here."
   }
 }

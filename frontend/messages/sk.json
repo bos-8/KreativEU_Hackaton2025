@@ -1,0 +1,191 @@
+{
+  "Navbar": {
+    "home": "Domov",
+    "feedback": "Spätná väzba",
+    "planner": "Plánovač ciest",
+    "demo": "Demo",
+    "architecture": "Architektúra",
+    "about": "O projekte"
+  },
+  "HomePage": {
+    "text1": "Objav <bold>skryté poklady</bold> Európy. Od historických hradov až po dychberúce pobrežia – vytvárame cesty, ktoré ti umožnia zažiť kultúru, prírodu a históriu — <italic>po tvojom</italic>.",
+    "text2": "Vyber si destináciu a ako dlho chceš objavovať. Náš plánovač s umelou inteligenciou vytvorí <italic>dokonalý itinerár</italic>, vyvažujúci dobrodružstvo a oddych."
+  },
+  "Footer": {
+    "rights": "Všetky práva vyhradené."
+  },
+  "Theme": {
+    "system": {
+      "label": "Systém",
+      "title": "Systémový režim"
+    },
+    "light": {
+      "label": "Svetlý",
+      "title": "Svetlý režim"
+    },
+    "dark": {
+      "label": "Tmavý",
+      "title": "Tmavý režim"
+    }
+  },
+  "CountryNames": {
+    "IT": "Taliansko",
+    "PT": "Portugalsko",
+    "DE": "Nemecko",
+    "NL": "Holandsko",
+    "CZ": "Česká republika",
+    "PL": "Poľsko",
+    "AT": "Rakúsko",
+    "SK": "Slovensko",
+    "RO": "Rumunsko",
+    "BG": "Bulharsko",
+    "TR": "Turecko",
+    "SE": "Švédsko"
+  },
+  "Feedback": {
+    "title": "Spätná väzba",
+    "description": "Podeľ sa o rýchlu spätnú väzbu o tvojej ceste. Podrobnosti sme predvyplnili z tvojho plánu/odoslania.",
+    "tripText": "Detaily cesty",
+    "country": "Krajina",
+    "city": "Mesto",
+    "days": "Dni",
+    "rating": "Ako hodnotíš svoju cestu celkovo?",
+    "recommend": "Odporučil(a) by som túto cestu",
+    "exampleText": "Príklad: “Cesta bola veľmi dobrá…”",
+    "back": "Späť",
+    "submit": "Odoslať spätnú väzbu",
+    "success": "✅ Ďakujeme za tvoju spätnú väzbu! Pomôže to ďalším používateľom na platforme.",
+    "placeholder": "Cesta bola veľmi dobrá! Miloval(a) som jedlo a historické pamiatky. Chodenie pešo fungovalo skvele. Hotel splnil očakávania.\n\nHlavné atrakcie: Koloseum, Vatikánske múzeá, Fontána di Trevi.\nOdporúčania: Rezervujte si hlavné atrakcie vopred, aby ste sa vyhli radom."
+  },
+  "Demo": {
+    "subtitle": "Naplánuj si svoj výlet po Európe.",
+    "text2": "Nastavenie cesty",
+    "text3": "Vyber <strong>krajinu</strong>, ktorú chceš navštíviť, a zadaj, koľko <strong>dní</strong> tam chceš stráviť. Tieto informácie budú použité na prípravu tvojho itinerára.",
+    "text4": "Naplánuj si itinerár",
+    "country": "Krajina",
+    "days": "Dni",
+    "daysHint": "Zadaj kladné celé číslo (max. 30).",
+    "submit": "Odoslať",
+    "reset": "Resetovať",
+    "name": "Názov",
+    "description": "Popis",
+    "visit": "Návšteva (min)",
+    "error": "Odpoveď backendu",
+    "info1": "Prosím, zadaj počet dní.",
+    "info2": "Počet dní musí byť kladné celé číslo.",
+    "info3": "Vyber maximálne 30 dní.",
+    "info4": "Prosím, vyber krajinu."
+  },
+  "Architecture": {
+    "title": "⚙️ Architektúra projektu",
+    "subtitle": "Súčasné riešenie",
+    "clientSide": "Časť <b>klienta</b> je postavená na <f>Next.js (React, TypeScript, Tailwind CSS, next-intl)</f>. Používateľ tu vyberá <i>krajinu</i>, počet <i>dní</i> a jazyk. Požiadavka sa odosiela cez Axios do backendu.",
+    "backendSide": "<b>Backend</b> beží na <f>FastAPI (Python)</f>. Načítava <i>body záujmu</i> (POI) z <f>databázy SQLite</f>, každý s koordinátmi, dobou návštevy a „skóre“.",
+    "gaIntro": "Na výpočet itinerára používame <f>Genetický algoritmus (GA)</f>. GA simuluje <i>evolučnú optimalizáciu</i>: generuje náhodné trasy, hodnotí ich a postupne vylepšuje. Hodnotenie je založené na:",
+    "gaPoints": {
+      "maximizeScore": "<b>Maximalizácia skóre</b> navštívených POI",
+      "minimizeTravel": "<b>Minimalizácia času cestovania</b> medzi miestami (cca 10 min/km pešo)",
+      "balanceLimits": "<b>Vyváženie denných limitov</b> (asi 8 hodín aktivity denne)"
+    },
+    "gaResult": "Najlepšia nájdená trasa po niekoľkých generáciách je vrátená ako JSON s detailmi: <i>deň, čas cesty, čas návštevy, kumulatívny čas a preklady</i>.",
+    "systemFlow": "Tok systému",
+    "flow": {
+      "1": "<b>Používateľ</b> navštívi stránku <i>frontend v Next.js</i>.",
+      "2": "<b>Frontend</b> odošle požiadavku (krajina, dni, jazyk) do <i>backendu FastAPI</i>.",
+      "3": "<b>Backend</b> načíta <i>POI</i> a metadáta z <i>databázy SQLite</i>.",
+      "4": "Načítané POI údaje vrátane prekladov sa vrátia do <i>modulu FastAPI</i>.",
+      "5": "FastAPI pošle údaje a parametre do <b>GA</b>, ktorý vypočíta <i>optimálny itinerár</i>.",
+      "6": "Výsledky GA sa vrátia do <i>FastAPI</i>, ktoré vyberie finálny obsah v požadovanom jazyku.",
+      "7": "<b>Odpoveď</b> sa pošle späť do <i>frontend v Next.js</i>, kde sa zobrazí itinerár."
+    },
+    "aws": "Migrácia do AWS Cloudu",
+    "awsIntro": "Aby sme projekt rozšírili pre viac používateľov a väčšie dátové sady, plánujeme migráciu do ekosystému <b>AWS Cloud</b>:",
+    "awsPoints": {
+      "1": "<b>AWS API Gateway</b> – bezpečný vstupný bod pre požiadavky klienta",
+      "2": "<b>AWS Lambda</b> – serverless funkcie vykonávajúce GA výpočty",
+      "3": "<b>Amazon RDS / Aurora</b> – škálovateľná databáza namiesto SQLite",
+      "4": "<b>AWS S3</b> – úložisko pre obrázky a statické dáta",
+      "5": "<b>AWS CloudWatch</b> – monitoring, logovanie a metriky výkonu",
+      "6": "<b>AWS SageMaker (budúcnosť)</b> – pokročilé ML/AI modely pre personalizované itineráre"
+    },
+    "awsOutro": "Táto cloud-native architektúra zaručuje <i>vysokú dostupnosť, globálny dosah a bezpečnosť na úrovni enterprise</i>.",
+    "future": "Budúce zlepšenia",
+    "futureIntro": "Okrem infraštruktúry chceme neustále zlepšovať <b>užívateľskú skúsenosť</b> a pridávať inteligentnejšie funkcie plánovania ciest:",
+    "futurePoints": {
+      "1": "<b>Sledovanie aktivít</b> – učiť sa z minulých itinerárov pre lepšie návrhy",
+      "2": "<b>Plánovanie podľa preferencií</b> – tempo, rozpočet, témy (história, jedlo, príroda)",
+      "3": "<b>Cesty viacerými krajinami</b> – podpora itinerárov cez viac krajín EÚ",
+      "4": "<b>Spolupráca</b> – zdieľanie a spolueditácia plánov s priateľmi alebo rodinou",
+      "5": "<b>Dostupnosť offline</b> – export itinerárov pre použitie bez internetu",
+      "6": "<b>Gamifikácia</b> – odmeny za objavovanie nových miest alebo ekologické voľby"
+    },
+    "qa": "Časté otázky",
+    "qaItems": {
+      "1": {
+        "q": "Prečo použiť Genetický algoritmus namiesto Dijkstra alebo A*?",
+        "a": "Klasické algoritmy dobre riešia najkratšie cesty, ale ťažko zvládajú viacero cieľov naraz (skóre + čas + denná štruktúra). GA je flexibilný a rýchlo prináša takmer optimálne riešenia."
+      },
+      "2": {
+        "q": "Prečo teraz SQLite?",
+        "a": "SQLite je ľahká a prenosná databáza, ideálna na prototypy. Keď projekt porastie, prejdeme na škálovateľnú databázu ako <b>PostgreSQL na AWS Aurora</b>."
+      },
+      "3": {
+        "q": "Ako sa bude systém vyvíjať?",
+        "a": "Plánujeme personalizované itineráre pomocou <i>strojového učenia</i>, integráciu s API dopravy a spoločné plánovanie viacerých používateľov v cloude."
+      },
+      "4": {
+        "q": "Môžem plánovať cesty cez viac krajín?",
+        "a": "Áno — budúce verzie budú podporovať <b>multi-country itineráre</b>, optimalizované pre hranice, témy a efektívnu dopravu."
+      },
+      "5": {
+        "q": "Bude plánovač fungovať offline?",
+        "a": "Áno, plánujeme <b>offline režim</b>, kde budú itineráre uložené v zariadení a dostupné bez internetu."
+      },
+      "6": {
+        "q": "Ako bude fungovať personalizácia?",
+        "a": "Na základe <i>preferencií a minulých volieb</i> systém navrhne itineráre podľa tvojho štýlu (jedlo, história, príroda, nočný život)."
+      },
+      "7": {
+        "q": "Berie sa do úvahy udržateľnosť?",
+        "a": "Samozrejme. Plánovač podporuje <b>ekologické možnosti cestovania</b> ako chôdza, bicykel alebo vlak a zdôrazňuje destinácie podporujúce udržateľnosť."
+      },
+      "8": {
+        "q": "Ako je chránené súkromie dát?",
+        "a": "Dodržiavame <b>GDPR</b>. Dáta používateľov nie sú nikdy predávané a sú bezpečne uložené. V cloude pridáme <i>end-to-end šifrovanie</i> a možnosť mazania dát používateľom."
+      }
+    }
+  },
+  "About": {
+    "team": "Tím: 3U-nity Vision",
+    "visionText": "<y>3U</y> znamená <b>Free You</b>, symbol slobody a individuality. Zároveň odkazuje na <bl>EU</bl>, <b>Európsku úniu</b>, predstavujúcu jednotu a spoluprácu. <in>Vision</in> ukazuje na spoločnú a udržateľnú budúcnosť Európy.",
+    "lead": "Vedúci projektu",
+    "strategy": "Stratégia & Koordinácia",
+    "consultant": "Obchodný konzultant",
+    "aiWebDev": "AI & Webový vývoj",
+    "architect": "Architekt",
+    "nextJsReact": "NEXT.js, TypeScript, Tailwind CSS, FastAPI",
+    "card": {
+      "title": "KreativEU",
+      "intro": "Oslavuj <y>kreativitu</y> a kultúrnu rozmanitosť Európy. Od umenia a dizajnu až po technológie a udržateľné inovácie – občania sú povzbudzovaní objavovať, zdieľať a spoločne tvoriť lepšiu budúcnosť — <i>spoločne</i>.",
+      "pitch": "Vyber si inšpiráciu: dedičstvo, inovácie alebo udržateľnosť. Náš AI plánovač vytvorí <i>dokonalú kultúrnu cestu</i>, kombinujúcu tradíciu s modernou európskou kreativitou.",
+      "valuesTitle": "🇪🇺 Európske hodnoty",
+      "valuesIntro": "EÚ je založená na šiestich základných hodnotách, ktoré tvoria základ našej spoločnosti:",
+      "valuesList": {
+        "1": "Rešpekt k ľudskej dôstojnosti",
+        "2": "Sloboda & Demokracia",
+        "3": "Rovnosť & Právny štát",
+        "4": "Rešpekt k ľudským právam, vrátane práv menšín"
+      },
+      "valuesOutro": "Tieto hodnoty sú spoločné pre všetky krajiny EÚ a zaručujú spoločnosť založenú na pluralizme, tolerancii, spravodlivosti, solidarite a nediskriminácii. Sú zakotvené v <b>Článku 2 Zmluvy o Európskej únii</b>.",
+      "sustainTitle": "🌱 Udržateľnosť",
+      "sustainIntro": "Európska komisia vytvára integrovaný prístup v <g>priemysle, životnom prostredí, klíme a energetike</g>, aby podporila udržateľný rast, zamestnanosť a inovácie.",
+      "sustainList": {
+        "1": "Prechod na klimaticky neutrálnu, cirkulárnu ekonomiku",
+        "2": "Ochrana biodiverzity, čistého ovzdušia a vody",
+        "3": "Energeticky efektívne a ekologicky navrhnuté produkty",
+        "4": "Sociálna inklúzia a spravodlivá transformácia pre všetky regióny"
+      },
+      "sustainOutro": "Premenou európskej ekonomiky na <i>cirkulárny model</i> sa zachová hodnota výrobkov a materiálov, čo prinesie významné ekonomické a sociálne prínosy a zároveň zníži dopad na životné prostredie."
+    }
+  }
+}

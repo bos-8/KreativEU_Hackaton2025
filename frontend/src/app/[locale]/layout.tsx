@@ -8,8 +8,8 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 
 export const metadata: Metadata = {
-  title: "MODULON",
-  description: "MODULON - AUTH SYSTEM BASE",
+  title: "WANDReu",
+  description: "WANDReu - Wander Europe with AI",
   authors: [{ name: "bos-8", url: "https://github.com/bos-8" },
   { name: "clau936", url: "https://github.com/clau936" },
   { name: "bibleAC", url: "https://github.com/bibleAC" }
@@ -23,9 +23,10 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
-  if (!hasLocale(["en", "pl", "es", "it", "cs", 'pt'], locale)) {
+  if (!hasLocale(["en", "pl", "es", "it", "cs", "pt", "de", "nl", "at", "sk", "ro", "bg", "tr", "se"], locale)) {
     notFound();
   }
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>

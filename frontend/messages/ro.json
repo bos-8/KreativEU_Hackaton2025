@@ -1,0 +1,191 @@
+{
+  "Navbar": {
+    "home": "Acasă",
+    "feedback": "Feedback",
+    "planner": "Planificator de călătorii",
+    "demo": "Demo",
+    "architecture": "Arhitectură",
+    "about": "Despre"
+  },
+  "HomePage": {
+    "text1": "Descoperă <bold>comorile ascunse</bold> ale Europei. De la castele istorice la coaste uluitoare – creăm călătorii care îți permit să experimentezi cultura, natura și istoria — <italic>în felul tău</italic>.",
+    "text2": "Alege destinația și cât timp dorești să explorezi. Planificatorul nostru bazat pe inteligență artificială va construi <italic>itinerariul perfect</italic>, echilibrând aventura și relaxarea."
+  },
+  "Footer": {
+    "rights": "Toate drepturile rezervate."
+  },
+  "Theme": {
+    "system": {
+      "label": "Sistem",
+      "title": "Mod sistem"
+    },
+    "light": {
+      "label": "Luminos",
+      "title": "Mod luminos"
+    },
+    "dark": {
+      "label": "Întunecat",
+      "title": "Mod întunecat"
+    }
+  },
+  "CountryNames": {
+    "IT": "Italia",
+    "PT": "Portugalia",
+    "DE": "Germania",
+    "NL": "Țările de Jos",
+    "CZ": "Republica Cehă",
+    "PL": "Polonia",
+    "AT": "Austria",
+    "SK": "Slovacia",
+    "RO": "România",
+    "BG": "Bulgaria",
+    "TR": "Turcia",
+    "SE": "Suedia"
+  },
+  "Feedback": {
+    "title": "Feedback",
+    "description": "Împarte rapid feedback-ul despre călătoria ta. Am completat detaliile din planul/trimiterea ta.",
+    "tripText": "Detalii călătorie",
+    "country": "Țară",
+    "city": "Oraș",
+    "days": "Zile",
+    "rating": "Per total, cum a fost călătoria ta?",
+    "recommend": "Aș recomanda această călătorie",
+    "exampleText": "Exemplu: “Călătoria a fost foarte bună…”",
+    "back": "Înapoi",
+    "submit": "Trimite feedback",
+    "success": "✅ Mulțumim pentru feedback! Va ajuta alți utilizatori pe platformă.",
+    "placeholder": "Călătoria a fost foarte bună! Mi-a plăcut mâncarea și obiectivele istorice. Deplasarea pe jos a fost excelentă. Hotelul a corespuns așteptărilor.\n\nRepere: Colosseum, Muzeele Vaticanului, Fântâna Trevi.\nSugestii: Rezervați atracțiile principale din timp pentru a evita cozile."
+  },
+  "Demo": {
+    "subtitle": "Planifică-ți excursia prin Europa.",
+    "text2": "Setări călătorie",
+    "text3": "Selectează <strong>țara</strong> pe care dorești să o vizitezi și introdu câte <strong>zile</strong> vrei să petreci acolo. Aceste informații vor fi folosite pentru pregătirea itinerariului tău.",
+    "text4": "Planifică itinerariul",
+    "country": "Țară",
+    "days": "Zile",
+    "daysHint": "Introdu un număr întreg pozitiv (max. 30).",
+    "submit": "Trimite",
+    "reset": "Resetează",
+    "name": "Nume",
+    "description": "Descriere",
+    "visit": "Vizită (min)",
+    "error": "Răspuns backend",
+    "info1": "Te rugăm să introduci numărul de zile.",
+    "info2": "Zilele trebuie să fie un număr întreg pozitiv.",
+    "info3": "Alege cel mult 30 de zile.",
+    "info4": "Te rugăm să selectezi o țară."
+  },
+  "Architecture": {
+    "title": "⚙️ Arhitectura Proiectului",
+    "subtitle": "Soluția curentă",
+    "clientSide": "Partea de <b>client</b> este construită cu <f>Next.js (React, TypeScript, Tailwind CSS, next-intl)</f>. Aici utilizatorii își aleg <i>țara</i>, numărul de <i>zile</i> și limba. Cererea este trimisă prin Axios către backend.",
+    "backendSide": "<b>Backend-ul</b> rulează pe <f>FastAPI (Python)</f>. Acesta preia <i>Puncte de Interes</i> (POI) dintr-o <f>bază de date SQLite</f>, fiecare având coordonate, durata vizitei și un „scor”.",
+    "gaIntro": "Pentru a calcula itinerariul folosim un <f>Algoritm Genetic (GA)</f>. GA simulează <i>optimizarea evolutivă</i>: generează trasee aleatorii, le evaluează și le îmbunătățește iterativ. Evaluarea se bazează pe:",
+    "gaPoints": {
+      "maximizeScore": "<b>Maximizarea scorului</b> POI-urilor vizitate",
+      "minimizeTravel": "<b>Minimizarea timpului de călătorie</b> între locații (aprox. 10 min/km pe jos)",
+      "balanceLimits": "<b>Echilibrarea limitelor zilnice</b> (aprox. 8 ore de activitate pe zi)"
+    },
+    "gaResult": "Cel mai bun traseu găsit după mai multe generații este returnat ca JSON cu detalii: <i>zi, minute de călătorie, minute de vizită, timp cumulativ și traduceri</i>.",
+    "systemFlow": "Flux sistem",
+    "flow": {
+      "1": "<b>Utilizatorul</b> accesează pagina <i>frontend în Next.js</i>.",
+      "2": "<b>Frontend-ul</b> trimite cererea (țară, zile, limbă) către <i>backend-ul FastAPI</i>.",
+      "3": "<b>Backend-ul</b> preia <i>POI</i>-urile și metadatele din <i>baza SQLite</i>.",
+      "4": "Datele POI, inclusiv traducerile, sunt returnate către <i>modulul FastAPI</i>.",
+      "5": "FastAPI trimite datele și parametrii către <b>GA</b>, care calculează <i>itinerariul optim</i>.",
+      "6": "Rezultatele GA sunt returnate către <i>FastAPI</i>, care selectează conținutul final în limba solicitată.",
+      "7": "<b>Răspunsul</b> este trimis către <i>frontend-ul Next.js</i>, unde itinerariul este afișat."
+    },
+    "aws": "Migrarea în AWS Cloud",
+    "awsIntro": "Pentru a scala proiectul la mai mulți utilizatori și seturi mai mari de date, planificăm migrarea în ecosistemul <b>AWS Cloud</b>:",
+    "awsPoints": {
+      "1": "<b>AWS API Gateway</b> – punct de intrare securizat pentru cererile clienților",
+      "2": "<b>AWS Lambda</b> – funcții serverless care rulează calculele GA",
+      "3": "<b>Amazon RDS / Aurora</b> – bază de date scalabilă în locul SQLite",
+      "4": "<b>AWS S3</b> – stocare pentru imagini și date statice",
+      "5": "<b>AWS CloudWatch</b> – monitorizare, loguri și metrici de performanță",
+      "6": "<b>AWS SageMaker (viitor)</b> – modele ML/IA avansate pentru itinerarii personalizate"
+    },
+    "awsOutro": "Această arhitectură cloud-native asigură <i>disponibilitate ridicată, acoperire globală și securitate la nivel enterprise</i>.",
+    "future": "Îmbunătățiri viitoare",
+    "futureIntro": "Dincolo de infrastructură, dorim să îmbunătățim continuu <b>experiența utilizatorului</b> și să oferim funcții de planificare mai inteligente:",
+    "futurePoints": {
+      "1": "<b>Urmărirea activității</b> – învățarea din itinerariile trecute pentru sugestii mai bune",
+      "2": "<b>Planificare bazată pe preferințe</b> – utilizatorii pot seta ritmul, bugetul sau temele (istorie, gastronomie, natură)",
+      "3": "<b>Călătorii multi-țară</b> – suport pentru itinerarii prin mai multe țări UE într-un singur plan",
+      "4": "<b>Funcții colaborative</b> – partajarea și co-editarea planurilor cu prietenii sau familia",
+      "5": "<b>Disponibilitate offline</b> – exportul itinerariilor pentru utilizare fără internet",
+      "6": "<b>Gamificare</b> – recompense pentru explorarea de noi locuri sau alegeri sustenabile"
+    },
+    "qa": "Întrebări frecvente",
+    "qaItems": {
+      "1": {
+        "q": "De ce un Algoritm Genetic și nu Dijkstra sau A*?",
+        "a": "Algoritmii tradiționali funcționează bine pentru drumuri scurte, dar se descurcă greu cu optimizarea multi-obiectiv (scor + timp + structură zilnică). GA oferă flexibilitate și soluții aproape optime rapid."
+      },
+      "2": {
+        "q": "De ce SQLite pentru moment?",
+        "a": "SQLite este ușor, portabil și perfect pentru prototipuri. Pe măsură ce proiectul crește, vom trece la o bază de date scalabilă precum <b>PostgreSQL pe AWS Aurora</b>."
+      },
+      "3": {
+        "q": "Cum va evolua sistemul?",
+        "a": "Vizăm itinerarii personalizate bazate pe <i>machine learning</i>, integrare live cu API-uri de transport și planificare colaborativă multi-utilizator pe infrastructură cloud-native."
+      },
+      "4": {
+        "q": "Pot planifica călătorii prin mai multe țări?",
+        "a": "Da — versiunile viitoare vor suporta <b>itinerarii multi-țară</b>, optimizate pentru treceri de frontieră, teme culturale și eficiență în transport."
+      },
+      "5": {
+        "q": "Va funcționa planificatorul offline?",
+        "a": "Plănuim introducerea unui <b>mod offline</b>, unde itinerariile vor putea fi salvate pe dispozitiv și accesate fără conexiune."
+      },
+      "6": {
+        "q": "Cum va funcționa personalizarea?",
+        "a": "Analizând <i>preferințele și alegerile trecute</i>, sistemul va sugera itinerarii adaptate stilului tău – fie gastronomie, istorie, natură sau viață de noapte."
+      },
+      "7": {
+        "q": "Se ia în considerare sustenabilitatea?",
+        "a": "Desigur. Planificatorul promovează <b>opțiuni eco</b> precum mersul pe jos, bicicleta sau trenul și evidențiază destinații care promovează sustenabilitatea și cultura locală."
+      },
+      "8": {
+        "q": "Cum este protejată confidențialitatea datelor?",
+        "a": "Respectăm <b>GDPR</b>. Datele utilizatorilor nu sunt niciodată vândute și sunt stocate în siguranță. În viitorul setup cloud vom adăuga <i>criptare end-to-end</i> și ștergerea datelor controlată de utilizator."
+      }
+    }
+  },
+  "About": {
+    "team": "Echipă: 3U-nity Vision",
+    "visionText": "<y>3U</y> înseamnă <b>Free You</b>, simbolizând libertatea și individualitatea. Reflectă și <bl>UE</bl>, <b>Uniunea Europeană</b>, reprezentând unitatea și cooperarea. <in>Vision</in> arată către un viitor comun și sustenabil pentru Europa.",
+    "lead": "Lider de proiect",
+    "strategy": "Strategie & Coordonare",
+    "consultant": "Consultant de vânzări",
+    "aiWebDev": "AI & Dezvoltare Web",
+    "architect": "Arhitect",
+    "nextJsReact": "NEXT.js, TypeScript, Tailwind CSS, FastAPI",
+    "card": {
+      "title": "KreativEU",
+      "intro": "Celebrează <y>creativitatea</y> și diversitatea culturală a Europei. De la artă și design la tehnologie și inovație sustenabilă – cetățenii sunt încurajați să exploreze, să împărtășească și să co-creeze un viitor mai bun — <i>împreună</i>.",
+      "pitch": "Alege inspirația ta: patrimoniu, inovație sau sustenabilitate. Planificatorul nostru cu AI va construi <i>călătoria culturală perfectă</i>, îmbinând tradiția cu creativitatea europeană modernă.",
+      "valuesTitle": "🇪🇺 Valorile europene",
+      "valuesIntro": "UE se bazează pe șase valori fundamentale care formează baza societății noastre:",
+      "valuesList": {
+        "1": "Respect pentru demnitatea umană",
+        "2": "Libertate & Democrație",
+        "3": "Egalitate & Stat de drept",
+        "4": "Respectarea drepturilor omului, inclusiv ale minorităților"
+      },
+      "valuesOutro": "Aceste valori sunt comune tuturor țărilor UE și asigură o societate bazată pe pluralism, toleranță, justiție, solidaritate și nediscriminare. Ele sunt consacrate în <b>Articolul 2 din Tratatul privind Uniunea Europeană</b>.",
+      "sustainTitle": "🌱 Sustenabilitate",
+      "sustainIntro": "Comisia Europeană elaborează o abordare integrată în <g>industrie, mediu, climă și energie</g> pentru a stimula creșterea sustenabilă, locurile de muncă și inovația.",
+      "sustainList": {
+        "1": "Tranziția către o economie circulară, neutră din punct de vedere climatic",
+        "2": "Protecția biodiversității, a aerului și a apei curate",
+        "3": "Produse eficiente energetic și eco-proiectate",
+        "4": "Incluziune socială și tranziție echitabilă pentru toate regiunile"
+      },
+      "sustainOutro": "Prin transformarea economiei europene într-un <i>model circular</i>, valoarea produselor și materialelor este păstrată, aducând beneficii economice și sociale majore și reducând impactul asupra mediului."
+    }
+  }
+}
