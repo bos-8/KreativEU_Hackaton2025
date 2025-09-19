@@ -1,196 +1,84 @@
 // @file: src/app/page.tsx
 'use client';
-import { useTranslations, useLocale } from "next-intl";
-import { useState } from 'react';
-import { api } from "@/lib/api/axios"  // not used yet (no sending logic)
-
-type CountryOption = { code: string; name: string };
-
-type PreviewData = {
-  country: string;
-  days: number;
-  lang: string;
-};
-
-// Minimal EU-focused list (extend anytime)
-const COUNTRIES: CountryOption[] = [
-  { code: 'IT', name: 'Italy' },
-  { code: 'PT', name: 'Portugal' },
-  { code: 'DE', name: 'Germany' },
-  { code: 'NL', name: 'Netherlands' },
-  { code: 'CZ', name: 'Czech Republic' },
-  { code: 'PL', name: 'Poland' },
-  { code: 'SK', name: 'Slovakia' },
-  { code: 'RO', name: 'Romania' },
-  { code: 'BG', name: 'Bulgaria' },
-  { code: 'TR', name: 'Turkey' },
-  { code: 'SE', name: 'Sweden' },
-];
+import { useTranslations } from "next-intl";
+import Hyperspeed from './Hyperspeed';
 export default function Home() {
   const t = useTranslations('HomePage');
-  const locale = useLocale();
-
-  const [country, setCountry] = useState<string>('IT');
-  const [days, setDays] = useState<string>('1');
-  const [formError, setFormError] = useState<string | null>(null);
-  const [preview, setPreview] = useState<PreviewData | null>(null);
-  const [apiResponse, setApiResponse] = useState<any>(null);
-
-  function validate(): string | null {
-    if (!days.trim()) return 'Please enter number of days.';
-    const n = Number(days);
-    if (!Number.isFinite(n) || !Number.isInteger(n) || n <= 0) {
-      return 'Days must be a positive integer.';
-    }
-    if (n > 30) return 'Please choose 30 days or fewer.';
-    if (!country) return 'Please select a country.';
-    return null;
-  }
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    const err = validate();
-    if (err) {
-      setFormError(err);
-      setPreview(null);
-      return;
-    }
-    setFormError(null);
-    setPreview({ country, days: Number(days), lang: locale });
-  }
-
-  async function handleSend() {
-    if (!preview) return;
-    try {
-      const res = await api.post("/itinerary", preview); // ✅ use shared api
-      setApiResponse(res.data);
-    } catch (error: any) {
-      console.error(error);
-      setApiResponse({ error: "Failed to contact backend" });
-    }
-  }
 
   return (
-    <main className="flex flex-col items-center justify-center px-6 py-12 bg-gray-50 dark:bg-gray-900 transition-colors">
-      {/* Light/Dark ready heading */}
-      {/* Light/Dark ready heading */}
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-gray-800 dark:text-white">WandrEU</h1>
-        <p className="text-lg text-gray-600 dark:text-gray-300 mt-2">
-          Plan your free-time getaway in Europe.
-        </p>
-      </div>
-
-      <div className="mt-10 max-w-2xl w-full bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-700 rounded-xl p-6">
-        <h2 className="text-2xl font-semibold text-gray-700 dark:text-gray-200 mb-4">
-          Trip setup
-        </h2>
-        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-          Select the <strong>country</strong> you want to visit and enter how many <strong>days</strong> you want to spend there.
-          This information will be used to prepare your itinerary.
-        </p>
-      </div>
-
-      {/* --- Form Card (no translations for labels as requested) --- */}
-      <form
-        onSubmit={handleSubmit}
-        className="mt-8 w-full max-w-2xl bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-700 rounded-xl p-6"
+    <main className="flex flex-col items-center justify-center px-6 py-12 bg-gray-50 dark:bg-gray-900 height-80vh transition-colors">
+      <div
+        className="absolute inset-0 z-0 opacity-70" // 👈 opacity darkens
+        aria-hidden="true"
       >
-        <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
-          Plan your itinerary
-        </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Country selector (light/dark aware) */}
-          <div>
-            <label htmlFor="country" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              Country
-            </label>
-            <select
-              id="country"
-              value={country}
-              onChange={(e) => setCountry(e.target.value)}
-              className="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              required
-            >
-              {COUNTRIES.map(c => (
-                <option key={c.code} value={c.code}>{c.name}</option>
-              ))}
-            </select>
-          </div>
-
-          {/* Days input: positive integers only */}
-          <div>
-            <label htmlFor="days" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              Days
-            </label>
-            <input
-              id="days"
-              type="number"
-              inputMode="numeric"
-              min={1}
-              max={30}
-              step={1}
-              value={days}
-              onChange={(e) => setDays(e.target.value)}
-              className="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              placeholder="1"
-              required
-            />
-            <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">Enter a positive whole number (max 30).</p>
-          </div>
+        <Hyperspeed
+          effectOptions={{
+            onSpeedUp: () => { },
+            onSlowDown: () => { },
+            distortion: 'turbulentDistortion',
+            length: 400,
+            roadWidth: 10,
+            islandWidth: 2,
+            lanesPerRoad: 4,
+            fov: 90,
+            fovSpeedUp: 100,
+            speedUp: 0.8,
+            carLightsFade: 0.4,
+            totalSideLightSticks: 20,
+            lightPairsPerRoadWay: 40,
+            shoulderLinesWidthPercentage: 0.05,
+            brokenLinesWidthPercentage: 0.1,
+            brokenLinesLengthPercentage: 0.5,
+            lightStickWidth: [0.12, 0.5],
+            lightStickHeight: [1.3, 1.7],
+            movingAwaySpeed: [60, 80],
+            movingCloserSpeed: [-120, -180],
+            carLightsLength: [400 * 0.03, 400 * 0.2],
+            carLightsRadius: [0.05, 0.14],
+            carWidthPercentage: [0.3, 0.5],
+            carShiftX: [-0.8, 0.8],
+            carFloorSeparation: [0, 5],
+            colors: {
+              roadColor: 0x080808,
+              islandColor: 0x0a0a0a,
+              background: 0x000000,
+              shoulderLines: 0xFFFFFF,
+              brokenLines: 0xFFFFFF,
+              leftCars: [0xFFD700, 0xc8fc37, 0x00fa00],
+              rightCars: [0x03B3C3, 0x0E5EA5, 0x324555],
+              sticks: 0x03B3C3,
+            }
+          }}
+        />
+      </div>
+      {/* === Glass effect card with text === */}
+      <div className="relative z-10 max-w-3xl mx-auto mt-35 p-10 rounded-2xl bg-white/10 dark:bg-black/40 backdrop-blur-md shadow-xl text-center flex flex-col items-center">
+        {/* Title with logo */}
+        <div className="flex items-center justify-center gap-3">
+          <img
+            src="/logo.png"
+            alt="WandrEU Logo"
+            className="w-36 h-36 object-contain drop-shadow-lg"
+          />
+          <h1 className="text-5xl font-extrabold text-white drop-shadow-lg">WandrEU</h1>
         </div>
 
-        {/* Error / success preview */}
-        {formError && (
-          <p className="mt-4 text-sm text-red-600 dark:text-red-400" role="alert">
-            {formError}
-          </p>
-        )}
+        {/* Intro */}
+        <p className="mt-6 text-lg text-gray-200 leading-relaxed">
+          {t.rich('text1', {
+            bold: (chunks) => <span className="font-semibold text-yellow-300">{chunks}</span>,
+            italic: (chunks) => <span className="italic text-indigo-300">{chunks}</span>
+          })}
+        </p>
 
-        <div className="mt-6 flex items-center gap-3">
-          {/* Preview button */}
-          <button
-            type="submit"
-            className="inline-flex items-center justify-center rounded-md bg-black text-white px-4 py-2 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black dark:focus:ring-white dark:focus:ring-offset-gray-800 transition"
-          >
-            Preview selection
-          </button>
+        <p className="mt-4 text-base text-gray-300">
+          {t.rich('text2', {
+            italic: (chunks) => <span className="italic text-indigo-300">{chunks}</span>
+          })}
+        </p>
+      </div>
 
-          {/* Send button (enabled only after preview) */}
-          <button
-            type="button"
-            onClick={handleSend}
-            disabled={!preview}
-            className={`inline-flex items-center justify-center rounded-md px-4 py-2 transition
-      ${preview
-                ? "bg-indigo-600 text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
-                : "bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 cursor-not-allowed"
-              }`}
-            title={preview ? "Send to API" : "Fill the form first"}
-          >
-            Send
-          </button>
-        </div>
-
-
-        {/* Preview */}
-        {preview && (
-          <div className="mt-6">
-            <h4 className="text-sm font-semibold">Your selection</h4>
-            <pre className="dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-3 rounded-md text-sm">{JSON.stringify(preview, null, 2)}</pre>
-          </div>
-        )}
-
-        {/* API response */}
-        {apiResponse && (
-          <div className="mt-6">
-            <h4 className="text-sm font-semibold">Backend response</h4>
-            <pre className="dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-3 rounded-md text-sm">{JSON.stringify(apiResponse, null, 2)}</pre>
-          </div>
-        )}
-      </form>
-      {/* End form card */}
     </main>
   );
 }

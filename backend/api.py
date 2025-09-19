@@ -32,32 +32,41 @@ class ItineraryRequest(BaseModel):
     lang: str
 
 # ==== DB Access ====
+
 def get_pois(country: str, lang: str) -> List[Dict[str, Any]]:
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     cur = conn.cursor()
 
-    # 1) Get POIs for country
-    cur.execute("SELECT * FROM poi WHERE country_code = ?", (country,))
-    pois = cur.fetchall()
+    # One query with LEFT JOIN
+    cur.execute(
+        """
+        SELECT p.id,
+               p.lat,
+               p.lng,
+               p.nice_score,
+               COALESCE(p.visit_time, 60) AS visit_time,
+               i.name,
+               i.description
+        FROM poi AS p
+        LEFT JOIN poi_i18n AS i
+               ON i.poi_id = p.id AND i.lang = ?
+        WHERE p.country_code = ?
+        """,
+        (lang, country),
+    )
+    rows = cur.fetchall()
 
     results = []
-    for row in pois:
-        # 2) Try to fetch translation
-        cur.execute(
-            "SELECT name, description FROM poi_i18n WHERE poi_id=? AND lang=?",
-            (row["id"], lang),
-        )
-        tr = cur.fetchone()
-
+    for row in rows:
         results.append({
             "id": row["id"],
-            "name": tr["name"] if tr else f"POI {row['id']}",
-            "desc": tr["description"] if tr else "",
+            "name": row["name"] if row["name"] else f"POI {row['id']}",
+            "desc": row["description"] or "",
             "lat": row["lat"],
-            "lon": row["lng"],      # 👈 renamed field
+            "lon": row["lng"],   # keep API consistent
             "nice_score": row["nice_score"],
-            "visit_time": row["visit_time"] or 60,  # default 1h if missing
+            "visit_time": row["visit_time"],
         })
 
     conn.close()

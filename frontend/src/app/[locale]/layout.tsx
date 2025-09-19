@@ -23,7 +23,7 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
-  if (!hasLocale(["en", "pl", "es", "it", "cs"], locale)) {
+  if (!hasLocale(["en", "pl", "es", "it", "cs", 'pt'], locale)) {
     notFound();
   }
   return (

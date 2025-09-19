@@ -196,6 +196,81 @@ export default function ResultsPage() {
               </p>
             </div>
           </section>
+
+          {/* === History & Culture === */}
+          <section className={`${section} mt-12`}>
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4">
+              History & Culture
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              {/* Text */}
+              <div>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-justify">
+                  Rome, the Eternal City, boasts a millennia-old history that has shaped not only Italy but the entire world.
+                  According to legend, it was founded by Romulus in 753 BC and grew from a humble village on the banks of the Tiber
+                  into the beating heart of an empire that dominated the Mediterranean.
+                </p>
+                <p className="mt-2 text-gray-700 dark:text-gray-300 leading-relaxed text-justify">
+                  The Roman legacy still permeates European civilization today through language, law, architecture, and urban planning.
+                  Landmarks such as the Colosseum, the Roman Forum, and the Pantheon stand as symbols of that era’s greatness, while the Renaissance
+                  and Baroque periods enriched the city with priceless artistic masterpieces.
+                </p>
+                <p className="mt-2 text-gray-700 dark:text-gray-300 leading-relaxed text-justify">
+                  Modern Rome skillfully blends past and present: a vibrant metropolis where every stone whispers ancient stories,
+                  every fountain reflects centuries of beauty, and every sunset illuminates a city that continues to enchant the world with its timeless magic.
+                </p>
+              </div>
+
+              {/* Image */}
+              <div className="flex justify-center md:justify-end">
+                <img
+                  src="/roma.jpg"
+                  alt="Rome city view"
+                  className="rounded-2xl shadow-lg w-full max-w-md object-cover h-80 md:h-115"
+                />
+              </div>
+            </div>
+          </section>
+
+
+          {/* === Traditional Cuisine === */}
+          <section className={`${section} mt-12`}>
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4">
+              Traditional Cuisine
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              {/* Image (on the left for md+, below text for mobile) */}
+              <div className="order-2 md:order-1 flex justify-center md:justify-start">
+                <img
+                  src="/altro.jpg"
+                  alt="Traditional Roman pasta dishes"
+                  className="rounded-2xl shadow-lg w-full max-w-md object-cover"
+                />
+              </div>
+
+              {/* Text */}
+              <div className="order-1 md:order-2 text-justify">
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                  If you enjoyed <strong>Cacio e Pepe</strong>, you should also try <em>Carbonara</em>, <em>Amatriciana</em>, and <em>Gricia</em>.
+                </p>
+                <ul className="mt-2 list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1">
+                  <li><strong>Cacio e Pepe</strong>: Black pepper and Pecorino cheese</li>
+                  <li><strong>Carbonara</strong>: Eggs, Guanciale, Black pepper, and Pecorino cheese</li>
+                  <li><strong>Amatriciana</strong>: Tomatoes, Guanciale, Pecorino cheese, White wine, and Fresh chili pepper</li>
+                  <li><strong>Gricia</strong>: Guanciale and Pecorino cheese</li>
+                </ul>
+                <p className="mt-3 text-gray-700 dark:text-gray-300 leading-relaxed">
+                  These iconic pasta dishes are rooted in Roman tradition: bold flavors, simple ingredients,
+                  and a deep love for authenticity. Perfect for enjoying in a trattoria—or recreating at home in your own kitchen.
+                </p>
+              </div>
+            </div>
+          </section>
+
+
+
         </div>
       </main>
     </>

@@ -6,6 +6,8 @@ import Image from 'next/image'
 import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation'
 import { useState, useRef, useEffect } from 'react'
+import { LangSelector } from '@/components/ui/LangSelector'
+import { ThemeSelector } from '@/components/ui/ThemeSelector'
 
 const NavbarLink = ({ href, label }: { href: string; label: string }) => {
   const pathname = usePathname()
@@ -47,21 +49,39 @@ export default function Navbar() {
         </Link>
 
         {/* Separator */}
-        <div className="mx-4 h-6 w-px bg-gray-300 dark:bg-gray-600" />
+        <div className="mx-2 h-6 w-px bg-gray-300 dark:bg-gray-600" />
 
         {/* Navigation Links */}
-        <div className="flex gap-4 text-sm font-medium">
+        <div className="flex gap-2 text-sm font-medium">
           <NavbarLink href="/" label={t('home')} />
-          <NavbarLink href="/feedback" label="Feedback" />
-          <NavbarLink href="/planner" label="Trip Planner" />
+        </div>
+        <div className="mx-1 h-6 w-px bg-gray-300 dark:bg-gray-600" />
+        <div className="flex gap-2 text-sm font-medium">
+          <NavbarLink href="/feedback" label={t('feedback')} />
+        </div>
+        <div className="mx-1 h-6 w-px bg-gray-300 dark:bg-gray-600" />
+        <div className="flex gap-2 text-sm font-medium">
+          <NavbarLink href="/planner" label={t('planner')} />
+        </div>
+        <div className="mx-1 h-6 w-px bg-gray-300 dark:bg-gray-600" />
+        <div className="flex gap-2 text-sm font-medium">
+          <NavbarLink href="/demo" label={t('demo')} />
+        </div >
+        <div className="mx-1 h-6 w-px bg-gray-300 dark:bg-gray-600" />
+        <div className="flex gap-2 text-sm font-medium">
+          <NavbarLink href="/arch" label={t('architecture')} />
+        </div>
+        <div className="mx-1 h-6 w-px bg-gray-300 dark:bg-gray-600" />
+        <div className="flex gap-2 text-sm font-medium">
+          <NavbarLink href="/about" label={t('about')} />
         </div>
 
         {/* Spacer */}
-        <div className="ml-auto flex items-center gap-4">
-
-          <NavbarLink href="/about" label="About" />
+        <div className="ml-auto hidden lg:flex items-center gap-2">
+          <LangSelector />
+          <ThemeSelector />
         </div>
       </div>
-    </nav>
+    </nav >
   );
 }

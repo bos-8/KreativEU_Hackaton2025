@@ -1,14 +1,15 @@
 {
-  "HomePage": {
-    "modulon": "Authentication system base",
-    "projectTitle": "About the project",
-    "projectDescription": "<strong>Modulon</strong> is a scalable and secure platform for user and authorization management, built with <strong>Next.js</strong> (frontend) and <strong>NestJS + Prisma</strong> (backend). The system uses a modern approach to session handling, access and refresh tokens, and is prepared for future containerization, caching, load balancing, and migration to PostgreSQL. The architecture is based on a monorepo aligned with best practices."
-  },
   "Navbar": {
     "home": "Home",
-    "dashboard": "Dashboard",
-    "signup": "Sign up",
-    "login": "Login"
+    "feedback": "Feedback",
+    "planner": "Trip Planner",
+    "demo": "Demo",
+    "architecture": "Architecture",
+    "about": "About"
+  },
+  "HomePage": {
+    "text1": "Discover the <bold>hidden gems</bold> of Europe. From historic castles to breathtaking coastlines, we craft journeys that let you experience culture, nature, and history — <italic>your way</italic>.",
+    "text2": "Choose your destination and how long you’d like to explore. Our AI-powered planner will build the <italic>perfect itinerary</italic>, balancing adventure and relaxation."
   },
   "Footer": {
     "rights": "All rights reserved."
@@ -27,44 +28,135 @@
       "title": "Dark mode"
     }
   },
-  "Login": {
-    "title": "Login",
-    "email": "Email",
-    "password": "Password",
-    "submit": "Login",
-    "errors": {
-      "email": {
-        "required": "Email is required",
-        "invalid": "Invalid email format"
-      },
-      "password": {
-        "min": "Password must be at least 6 characters"
-      }
-    }
+  "CountryNames": {
+    "IT": "Italy",
+    "PT": "Portugal",
+    "DE": "Germany",
+    "NL": "Netherlands",
+    "CZ": "Czech Republic",
+    "PL": "Poland",
+    "AT": "Austria",
+    "SK": "Slovakia",
+    "RO": "Romania",
+    "BG": "Bulgaria",
+    "TR": "Turkey",
+    "SE": "Sweden"
   },
-  "Signup": {
-    "title": "Sign up",
-    "email": "Email",
-    "password": "Password",
-    "confirmPassword": "Confirm password",
-    "submit": "Create account",
+  "Feedback": {
+    "title": "Feedback",
+    "description": "Share quick feedback about your trip. We pre-filled details from your plan/submit.",
+    "tripText": "Trip details",
+    "country": "Country",
+    "city": "City",
+    "days": "Days",
+    "rating": "Overall, how was your trip?",
+    "recommend": "I would recommend this trip",
+    "exampleText": "Example prefill: “The trip was very good…”",
+    "back": "Back",
+    "submit": "Send feedback",
+    "success": "✅ Thanks for your feedback! It will help other users on the platform.",
+    "placeholder": "The trip was very good! Loved the food and historical sites. Getting around on foot worked great. Hotel met expectations.\n\nHighlights: Colosseum, Vatican Museums, Trevi Fountain.\nSuggestions: Book major attractions in advance to avoid queues."
+  },
+  "Demo": {
+    "subtitle": "Plan your free-time getaway in Europe.",
+    "text2": "Trip setup",
+    "text3": "Select the <strong>country</strong> you want to visit and enter how many <strong>days</strong> you want to spend there. This information will be used to prepare your itinerary.",
+    "text4": "Plan your itinerary",
+    "country": "Country",
+    "days": "Days",
+    "daysHint": "Enter a positive whole number (max 30).",
+    "submit": "Submit",
     "reset": "Reset",
-    "errors": {
-      "email": {
-        "required": "Email is required",
-        "invalid": "Invalid email format"
+    "name": "Name",
+    "description": "Description",
+    "visit": "Visit (min)",
+    "error": "Backend response",
+    "info1": "Please enter number of days.",
+    "info2": "Days must be a positive integer.",
+    "info3": "Please choose 30 days or fewer.",
+    "info4": "Please select a country."
+  },
+  "Architecture": {
+    "title": "⚙️ Project Architecture",
+    "subtitle": "Current Solution",
+    "clientSide": "The <b>client</b> side is built with <f>Next.js (React, TypeScript, Tailwind CSS, next-intl)</f>. Here, users select their <i>country</i>, number of <i>days</i>, and language. The request is sent via Axios to the backend API.",
+    "backendSide": "The <b>backend</b> is powered by <f>FastAPI (Python)</f>. It retrieves <i>Points of Interest</i> (POIs) from a <f>SQLite database</f>, each with coordinates, visit duration, and a \"nice score\".",
+    "gaIntro": "To compute the itinerary, we use a <f>Genetic Algorithm (GA)</f>. The GA simulates <i>evolutionary optimization</i>: multiple random routes are generated, evaluated, and iteratively improved. Fitness is based on:",
+    "gaPoints": {
+      "maximizeScore": "<b>Maximizing score</b> of visited POIs",
+      "minimizeTravel": "<b>Minimizing travel time</b> between locations (walking ~10 min/km)",
+      "balanceLimits": "<b>Balancing daily limits</b> (about 8 hours of activity per day)"
+    },
+    "gaResult": "The best path found after several generations is returned as a JSON response, with details like <i>day index, travel minutes, visit minutes, cumulative time, and translations</i>.",
+    "systemFlow": "System Flow",
+    "flow": {
+      "1": "<b>User</b> visits the <i>Next.js frontend</i> page.",
+      "2": "<b>Frontend</b> sends the trip request (country, days, language) to the <i>FastAPI backend</i>.",
+      "3": "The <b>backend</b> retrieves <i>Points of Interest</i> (POIs) and metadata from the <i>SQLite database</i>.",
+      "4": "Retrieved POI data, including translations, is returned to the <i>FastAPI processing module</i>.",
+      "5": "FastAPI sends the POI data and trip parameters to the <b>Genetic Algorithm (GA)</b>, which computes the <i>optimal itinerary</i> (maximizing score while minimizing travel time).",
+      "6": "GA results are returned to <i>FastAPI</i>, which selects the final content in the requested language.",
+      "7": "The <b>response</b> is sent back to the <i>Next.js frontend</i>, where the itinerary is displayed to the user."
+    },
+    "aws": "AWS Cloud Migration",
+    "awsIntro": "To scale the project for more users and larger datasets, we plan to migrate into the <b>AWS Cloud</b> ecosystem:",
+    "awsPoints": {
+      "1": "<b>AWS API Gateway</b> – secure entry point for client requests",
+      "2": "<b>AWS Lambda</b> – serverless functions running GA computations",
+      "3": "<b>Amazon RDS / Aurora</b> – scalable database replacing SQLite",
+      "4": "<b>AWS S3</b> – storage for images and static data",
+      "5": "<b>AWS CloudWatch</b> – monitoring, logging, and performance metrics",
+      "6": "<b>AWS SageMaker (future)</b> – advanced ML/AI models for personalized itineraries"
+    },
+    "awsOutro": "This cloud-native architecture ensures <i>high availability, global reach, and enterprise-grade security</i>.",
+    "future": "Future Functional Improvements",
+    "futureIntro": "Beyond infrastructure, we aim to continuously improve the <b>user experience</b> and provide smarter travel planning features:",
+    "futurePoints": {
+      "1": "<b>User activity tracking</b> – learn from past itineraries to offer more relevant suggestions",
+      "2": "<b>Preference-based planning</b> – allow users to set trip pace, budget, or themes (history, food, nature)",
+      "3": "<b>Multi-country trips</b> – support itineraries across several EU countries in one plan",
+      "4": "<b>Collaboration features</b> – share and co-edit plans with friends or family",
+      "5": "<b>Offline availability</b> – export itineraries for use without internet access",
+      "6": "<b>Gamification</b> – reward users for exploring new places or sustainable travel choices"
+    },
+    "qa": "Q&A",
+    "qaItems": {
+      "1": {
+        "q": "Why use a Genetic Algorithm instead of Dijkstra or A*?",
+        "a": "Traditional algorithms work well for shortest paths but struggle with multi-objective optimization (scenic score + time limits + daily structure). GA offers flexibility and near-optimal solutions quickly."
       },
-      "password": {
-        "min": "Password must be at least 6 characters"
+      "2": {
+        "q": "Why SQLite for now?",
+        "a": "SQLite is lightweight, portable, and perfect for prototyping. As the project grows, we’ll move to a scalable cloud database like <b>PostgreSQL on AWS Aurora</b>."
       },
-      "confirmPassword": {
-        "required": "Confirm password is required",
-        "match": "Passwords must match"
+      "3": {
+        "q": "How will the system evolve?",
+        "a": "We envision personalized itineraries powered by <i>machine learning</i>, live integration with transport APIs, and multi-user collaborative planning, all running on cloud-native infrastructure."
+      },
+      "4": {
+        "q": "Can I plan trips across multiple countries?",
+        "a": "Yes — future versions will support <b>multi-country itineraries</b>, optimized for border crossings, cultural themes, and transport efficiency."
+      },
+      "5": {
+        "q": "Will the planner work offline?",
+        "a": "We plan to introduce an <b>offline mode</b> where itineraries can be saved to your device and accessed without internet connectivity — ideal for traveling abroad."
+      },
+      "6": {
+        "q": "How will personalization work?",
+        "a": "By analyzing <i>user preferences and past choices</i>, the system will suggest itineraries that match your travel style — whether it’s food, history, nature, or nightlife."
+      },
+      "7": {
+        "q": "Is sustainability considered in the trip planning?",
+        "a": "Absolutely. Our planner encourages <b>eco-friendly travel options</b> such as walking, biking, or trains and highlights destinations that promote sustainability and local culture."
+      },
+      "8": {
+        "q": "How is data privacy handled?",
+        "a": "We follow <b>GDPR-compliant practices</b>. User data is never sold and is stored securely. In the future cloud setup, we will add <i>end-to-end encryption</i> and user-controlled data deletion."
       }
     }
   },
-  "DashboardPage": {
-    "title": "User Dashboard",
-    "description": "Welcome to your dashboard. In the future, you’ll find shortcuts, statistics, and account management here."
+  "About": {
+    "team": "Team: 3U-nity Vision",
+    "visionText": "<y>3U</y> stands for <b>Free You</b>, symbolizing freedom and individuality. It also reflects <bl>EU</bl>, the <b>European Union</b>, representing unity and cooperation. <in>Vision</in> points toward a shared, sustainable future for Europe."
   }
 }
