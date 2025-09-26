@@ -2,7 +2,7 @@
 'use client';
 import { useTranslations } from "next-intl";
 import LetterGlitch from './LetterGlitch';
-
+export const dynamic = "force-static";
 
 export default function Home() {
   const t = useTranslations('About');

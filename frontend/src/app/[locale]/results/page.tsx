@@ -1,5 +1,6 @@
 // @file: src/app/results/page.tsx
 'use client';
+export const dynamic = "force-static";
 
 import {
   PersonWalking,
@@ -18,7 +19,6 @@ import {
 } from 'react-bootstrap-icons';
 
 import CircularGallery from './CircularGallery'
-
 
 
 export default function ResultsPage() {

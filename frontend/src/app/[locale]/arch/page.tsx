@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useRef } from 'react';
 import { useTranslations } from "next-intl";
-
+export const dynamic = "force-static";
 export default function MatrixBackground() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const t = useTranslations('Architecture');
@@ -247,6 +247,86 @@ export default function MatrixBackground() {
           </div>
         </div>
       </section>
+
+
+      <section className="mt-1 max-w-5xl mx-auto p-10 rounded-2xl bg-white/20 dark:bg-black/60 backdrop-blur-md shadow-xl text-justify">
+        <div>
+          <div className="space-y-6 text-gray-200 text-sm">
+            {/* 1 */}
+            <div>
+              <p className="font-semibold text-white">
+                1. What the proposal AI system/tool would look like
+              </p>
+              <p className="text-gray-300">
+                The tool is a <strong>web platform</strong> with a Next.js frontend and a
+                FastAPI backend powered by a <em>Genetic Algorithm (GA)</em>. It allows
+                users to input their country, trip length, and language, and generates
+                an optimized <strong>itinerary with cultural points of interest</strong>.
+              </p>
+            </div>
+            {/* 2 */}
+            <div>
+              <p className="font-semibold text-white">
+                2. The context in which it will/could be used
+              </p>
+              <p className="text-gray-300">
+                The system is designed for the <strong>European tourism and cultural
+                  heritage sector</strong>. It will primarily be used across EU countries,
+                promoting both <em>local and cross-border cultural exploration</em>.
+              </p>
+            </div>
+            {/* 3 */}
+            <div>
+              <p className="font-semibold text-white">
+                3. The way it will/could be used and by whom
+              </p>
+              <p className="text-gray-300">
+                It will be used by <strong>travelers, families, students, and citizens</strong>
+                who want to explore Europe. Future collaboration features will allow
+                <em>friends and communities</em> to plan together, making cultural
+                travel more accessible and social.
+              </p>
+            </div>
+            {/* 4 */}
+            <div>
+              <p className="font-semibold text-white">
+                4. Sustainability perspective
+              </p>
+              <p className="text-gray-300">
+                The tool promotes <strong>eco-friendly travel</strong> such as walking,
+                biking, or taking trains. It reflects EU sustainability goals by
+                <em>reducing carbon emissions, protecting biodiversity, and encouraging
+                  circular economy values</em> within cultural tourism.
+              </p>
+            </div>
+            {/* 5 */}
+            <div>
+              <p className="font-semibold text-white">
+                5. Contribution to protecting Europe's cultural heritage
+              </p>
+              <p className="text-gray-300">
+                The planner highlights both <strong>tangible heritage</strong> (monuments,
+                museums, historic sites) and <strong>intangible heritage</strong>
+                (languages, local traditions, cuisine, festivals). By guiding visitors
+                responsibly, it helps <em>reduce over-tourism</em> in crowded sites while
+                promoting <em>lesser-known cultural treasures</em>, ensuring that Europe’s
+                heritage is preserved and appreciated.
+              </p>
+            </div>
+            {/* 6 */}
+            <div>
+              <p className="font-semibold text-white">
+                6. European values
+              </p>
+              <p className="text-gray-300">
+
+                The project reflects core European values such as human dignity, freedom, democracy, equality, rule of law, and respect for human rights. In the short term, it enables inclusive access to culture. In the long term, it strengthens cultural awareness and cooperation across Europe by helping people discover, share, and preserve both well-known and hidden cultural treasures in a sustainable way.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
     </>
   );

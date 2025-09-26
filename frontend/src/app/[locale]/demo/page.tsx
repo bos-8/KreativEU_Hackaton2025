@@ -3,7 +3,7 @@
 import { useTranslations, useLocale } from "next-intl";
 import { useState } from 'react';
 import { api } from "@/lib/api/axios"  // not used yet (no sending logic)
-
+export const dynamic = "force-static";
 type CountryOption = { code: string; name: string };
 
 type PreviewData = {
@@ -75,6 +75,25 @@ export default function Home() {
       setApiResponse({ error: "Failed to contact backend" });
     }
   }
+
+  // async function handleSubmit(e: React.FormEvent) {
+  //   e.preventDefault();
+  //   const err = validate();
+  //   if (err) {
+  //     setFormError(err);
+  //     setApiResponse(null);
+  //     return;
+  //   }
+  //   setFormError(null);
+
+  //   // Instead of sending request to backend, just show demo message
+  //   const demoResponse = {
+  //     message: "For exhibition purposes this feature is not working.",
+  //     info: "You can download the full project on GitHub to try the itinerary planner.",
+  //   };
+
+  //   setApiResponse(demoResponse);
+  // }
 
   function handleReset() {
     setApiResponse(null);

@@ -5,7 +5,7 @@ import * as React from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { StarFill } from 'react-bootstrap-icons';
-
+export const dynamic = "force-static";
 type PlanData = {
   country: string;
   city: string;

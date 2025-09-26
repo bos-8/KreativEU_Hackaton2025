@@ -127,7 +127,8 @@ export const LangSelector = () => {
             dropUp ? 'bottom-full mb-2 right-0 origin-bottom-right' : 'top-full mt-2 right-0 origin-top-right'
           ].join(' ')}
         >
-          <ul className="max-h-64 overflow-auto py-1">
+          {/* <ul className="max-h-64 overflow-auto py-1"> */}
+          <ul className="py-1">
             {LOCALES.map(l => {
               const active = l.code === locale;
               return (

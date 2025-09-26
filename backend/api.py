@@ -9,7 +9,7 @@ import sqlite3
 from ga import genetic_algorithm
 
 # ==== GLOBALS ====
-DB_PATH = "./backend/wandreu.db"  # 👈 your sqlite database file name
+DB_PATH = "./backend/wandreu.db"
 
 # ==== FastAPI setup ====
 app = FastAPI()

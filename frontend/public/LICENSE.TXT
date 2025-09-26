@@ -1,7 +1,7 @@
 MIT License
 -----------
 
-Copyright (c) 2025 <Your Team>
+Copyright (c) 2025 3U-nity Vision
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -21,43 +21,78 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 IN THE SOFTWARE.
 
-
 ----------------------------------------------------------------------
 Hackathon 2025 Acknowledgement
 ----------------------------------------------------------------------
 
-This project was created during **Hackathon 2025** (date: <today’s date>)
+This project "WandrEU" was created during **Hackathon 2025** (18–19.09.2025)
 as a collaborative prototype to explore innovative solutions in web, AI, and cultural travel planning.
 
 The project demonstrates integration of:
 - Next.js frontend with multi-lingual support
-- FastAPI backend with AI-powered itinerary planning
+- FastAPI backend with AI-powered itinerary planning (genetic algorithm)
 - Cloud-native design principles for scalability
 
-For more information about resources, frameworks, and libraries used in this project, please see:
-## IMAGES
-https://www.pexels.com/pl-pl/zdjecie/koloseum-wlochy-1797161/
-https://www.pexels.com/pl-pl/zdjecie/miasto-niebo-znane-miejsce-budynek-4846208/
-https://www.pexels.com/it-it/foto/monumento-alla-lupa-capitolina-a-roma-italia-19724801/
-https://www.pexels.com/it-it/foto/shallow-focus-foto-di-pasta-546945/
-https://www.pexels.com/it-it/foto/bella-architettura-33945953/
-https://www.pexels.com/it-it/foto/presepe-di-persone-all-interno-di-una-cupola-159862/
-https://www.pexels.com/it-it/foto/affreschi-del-soffitto-della-cappella-sistina-in-citta-del-vaticano-28733354/
-https://www.pexels.com/it-it/foto/pantheon-tempio-romano-a-roma-2928046/
-https://www.pexels.com/it-it/foto/citta-punto-di-riferimento-edifici-italia-7877896/
-https://www.pexels.com/it-it/foto/paesaggio-barca-canale-autunno-9880088/
-https://www.pexels.com/it-it/foto/fotografia-di-ponte-illuminato-753639/
-https://www.pexels.com/it-it/foto/parco-ombre-corridoio-vuoto-7946829/
-https://www.pexels.com/it-it/foto/il-colosseo-roma-1701595/
-https://www.pexels.com/it-it/foto/vista-aerea-degli-edifici-della-citta-3762276/
-https://www.pexels.com/it-it/foto/struttura-in-cemento-bianco-2928058/
-https://www.pexels.com/it-it/foto/citta-arte-punto-di-riferimento-italia-16735127/
-https://www.pexels.com/it-it/foto/persona-che-guida-sulla-motocicletta-1577510/
-https://www.pexels.com/it-it/foto/cibo-piastre-italiano-pranzo-5336537/
-https://www.pexels.com/it-it/foto/cibo-dessert-gelato-dolci-13061129/
+## Team: 3U-nity Vision
 
-# TEMPLATES REACT BITS
-https://reactbits.dev/get-started/introduction
+**3U** stands for *Free You*, symbolizing freedom and individuality.
+It also reflects *EU* (European Union), representing unity and cooperation.
+**Vision** points toward a shared, sustainable future for Europe.
+
+### Members
+- **Claudia Germoni** – *Project Lead*
+  Strategy & Coordination
+
+- **André de Jesus Elias Costa** – *Selling Consultant*
+  AI & Web Development
+
+- **Kacper Boś** – *Architect*
+  Next.js, TypeScript, Tailwind CSS, FastAPI
+
+## Acknowledgements
+Special thanks to **Hackathon 2025 organizers**, mentors, and the **CreativEU program**
+for inspiration, resources, and support during the event.
+
+## Tech Stack
+- Next.js 15 with Tailwind CSS & next-intl (multi-language frontend)
+- FastAPI backend with genetic algorithm (AI-powered itinerary planning)
+- Cloud-native design & deployment principles
+
+## Disclaimer
+This is a prototype created during a 24h hackathon.
+It is **not production-ready** and may contain experimental or incomplete code.
+Future work may include optimizations, security hardening, and production deployment.
+
+## Contact
+Connect with the team on **LinkedIn** or **GitHub** for collaboration and future projects.
 
 ----------------------------------------------------------------------
 
+## Resources & Assets
+
+### Images
+- https://www.pexels.com/pl-pl/zdjecie/koloseum-wlochy-1797161/
+- https://www.pexels.com/pl-pl/zdjecie/miasto-niebo-znane-miejsce-budynek-4846208/
+- https://www.pexels.com/it-it/foto/monumento-alla-lupa-capitolina-a-roma-italia-19724801/
+- https://www.pexels.com/it-it/foto/shallow-focus-foto-di-pasta-546945/
+- https://www.pexels.com/it-it/foto/bella-architettura-33945953/
+- https://www.pexels.com/it-it/foto/presepe-di-persone-all-interno-di-una-cupola-159862/
+- https://www.pexels.com/it-it/foto/affreschi-del-soffitto-della-cappella-sistina-in-citta-del-vaticano-28733354/
+- https://www.pexels.com/it-it/foto/pantheon-tempio-romano-a-roma-2928046/
+- https://www.pexels.com/it-it/foto/citta-punto-di-riferimento-edifici-italia-7877896/
+- https://www.pexels.com/it-it/foto/paesaggio-barca-canale-autunno-9880088/
+- https://www.pexels.com/it-it/foto/fotografia-di-ponte-illuminato-753639/
+- https://www.pexels.com/it-it/foto/parco-ombre-corridoio-vuoto-7946829/
+- https://www.pexels.com/it-it/foto/il-colosseo-roma-1701595/
+- https://www.pexels.com/it-it/foto/vista-aerea-degli-edifici-della-citta-3762276/
+- https://www.pexels.com/it-it/foto/struttura-in-cemento-bianco-2928058/
+- https://www.pexels.com/it-it/foto/citta-arte-punto-di-riferimento-italia-16735127/
+- https://www.pexels.com/it-it/foto/persona-che-guida-sulla-motocicletta-1577510/
+- https://www.pexels.com/it-it/foto/cibo-piastre-italiano-pranzo-5336537/
+- https://www.pexels.com/it-it/foto/cibo-dessert-gelato-dolci-13061129/
+
+### Templates
+- https://reactbits.dev/get-started/introduction
+
+### Diagram
+- https://app.diagrams.net/

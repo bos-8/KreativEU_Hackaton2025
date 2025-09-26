@@ -6,6 +6,7 @@ import "../../styles/globals.css";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { SUPPORTED_LOCALES } from "@/lib/locales";
 
 export const metadata: Metadata = {
   title: "WANDReu",
@@ -15,6 +16,10 @@ export const metadata: Metadata = {
   { name: "bibleAC", url: "https://github.com/bibleAC" }
   ],
 };
+
+export function generateStaticParams() {
+  return SUPPORTED_LOCALES.map(locale => ({ locale }));
+}
 
 export default async function LocaleLayout({
   children, params

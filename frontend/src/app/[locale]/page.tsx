@@ -61,23 +61,38 @@ export default function Home() {
             alt="WandrEU Logo"
             className="w-36 h-36 object-contain drop-shadow-lg"
           />
-          <h1 className="text-5xl font-extrabold text-white drop-shadow-lg">WandrEU</h1>
+          <h1 className="text-5xl font-extrabold text-black dark:text-white drop-shadow-lg">
+            WandrEU
+          </h1>
         </div>
 
         {/* Intro */}
-        <p className="mt-6 text-lg text-gray-200 leading-relaxed">
+        <p className="mt-6 text-lg leading-relaxed text-gray-800 dark:text-gray-200">
           {t.rich('text1', {
-            bold: (chunks) => <span className="font-semibold text-yellow-300">{chunks}</span>,
-            italic: (chunks) => <span className="italic text-indigo-300">{chunks}</span>
+            bold: (chunks) => (
+              <span className="font-semibold text-yellow-600 dark:text-yellow-300">
+                {chunks}
+              </span>
+            ),
+            italic: (chunks) => (
+              <span className="italic text-indigo-600 dark:text-indigo-300">
+                {chunks}
+              </span>
+            )
           })}
         </p>
 
-        <p className="mt-4 text-base text-gray-300">
+        <p className="mt-4 text-base text-gray-700 dark:text-gray-300">
           {t.rich('text2', {
-            italic: (chunks) => <span className="italic text-indigo-300">{chunks}</span>
+            italic: (chunks) => (
+              <span className="italic text-indigo-600 dark:text-indigo-300">
+                {chunks}
+              </span>
+            )
           })}
         </p>
       </div>
+
 
     </main>
   );
